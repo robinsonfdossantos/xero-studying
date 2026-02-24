@@ -1336,7 +1336,7 @@ const weeks = [
 
 const phaseColors = {1:"#1b5e9e",2:"#276749",3:"#7b341e",4:"#553c9a",5:"#b7791f"};
 const phaseBg = {1:"#e8f4fd",2:"#f0fff4",3:"#fff5f5",4:"#faf5ff",5:"#fffaf0"};
-let completed = JSON.parse((()=>{try{return '[]'}catch(e){return '[]'}})());
+let completed = [];
 
 function renderWeeks(filter) {
   const el = document.getElementById('mainContent');
