@@ -3,1399 +3,366 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Xero Full Course – AU</title>
+<title>Xero Full Course – AU Bookkeeper Track</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Segoe UI', sans-serif; background: #f0f4f8; color: #1a202c; }
-  header { background: linear-gradient(135deg, #1b5e9e, #13b5ea); color: white; padding: 32px 24px 24px; }
-  header h1 { font-size: 1.7rem; font-weight: 700; }
-  header p { margin-top: 6px; opacity: 0.88; font-size: 0.95rem; }
-  .progress-bar { background: rgba(255,255,255,0.2); border-radius: 20px; height: 8px; margin-top: 16px; }
-  .progress-fill { background: #fff; border-radius: 20px; height: 8px; transition: width 0.4s; }
-  .progress-label { font-size: 0.8rem; margin-top: 6px; opacity: 0.9; }
-
-  nav { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 0 16px; display: flex; flex-wrap: wrap; gap: 4px; }
-  nav button { border: none; background: none; padding: 10px 12px; cursor: pointer; font-size: 0.82rem; color: #4a5568; border-bottom: 3px solid transparent; transition: all 0.2s; font-weight: 500; }
-  nav button:hover { color: #1b5e9e; }
-  nav button.active { color: #1b5e9e; border-bottom-color: #13b5ea; }
-
-  .phase-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #fff; border-radius: 4px; padding: 2px 7px; margin-right: 4px; vertical-align: middle; }
-
-  main { max-width: 900px; margin: 24px auto; padding: 0 16px 60px; }
-
-  .week-card { background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 32px; overflow: hidden; }
-  .week-header { padding: 20px 24px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid #e2e8f0; }
-  .week-num { background: #1b5e9e; color: white; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.95rem; flex-shrink: 0; }
-  .week-header h2 { font-size: 1.1rem; font-weight: 700; color: #1a202c; }
-  .week-header p { font-size: 0.85rem; color: #718096; margin-top: 2px; }
-  .phase-badge { margin-left: auto; font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 20px; white-space: nowrap; }
-
-  .week-body { padding: 24px; }
-
-  .section { margin-bottom: 28px; }
-  .section h3 { font-size: 0.95rem; font-weight: 700; color: #1b5e9e; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 2px solid #e8f4fd; }
-
-  .topic { background: #f7fafc; border-left: 4px solid #13b5ea; border-radius: 0 8px 8px 0; padding: 14px 16px; margin-bottom: 12px; }
-  .topic h4 { font-size: 0.95rem; font-weight: 700; color: #2d3748; margin-bottom: 8px; }
-  .topic p, .topic li { font-size: 0.88rem; color: #4a5568; line-height: 1.65; }
-  .topic ul, .topic ol { padding-left: 18px; margin-top: 6px; }
-  .topic li { margin-bottom: 4px; }
-
-  .xero-tip { background: #e6f7ff; border: 1px solid #91d5ff; border-radius: 8px; padding: 12px 14px; margin-top: 10px; }
-  .xero-tip strong { color: #0050b3; font-size: 0.82rem; }
-  .xero-tip p { font-size: 0.84rem; color: #003a8c; margin-top: 3px; }
-
-  .au-note { background: #fff7e6; border: 1px solid #ffd591; border-radius: 8px; padding: 12px 14px; margin-top: 10px; }
-  .au-note strong { color: #874d00; font-size: 0.82rem; }
-  .au-note p { font-size: 0.84rem; color: #613400; margin-top: 3px; }
-
-  .practice { background: #f0fff4; border: 1px solid #9ae6b4; border-radius: 8px; padding: 12px 14px; margin-top: 10px; }
-  .practice strong { color: #276749; font-size: 0.82rem; }
-  .practice p, .practice li { font-size: 0.84rem; color: #22543d; margin-top: 3px; line-height: 1.6; }
-  .practice ul { padding-left: 16px; margin-top: 6px; }
-
-  .checkpoint { background: linear-gradient(135deg, #1b5e9e, #13b5ea); color: white; border-radius: 10px; padding: 16px 20px; margin-top: 24px; }
-  .checkpoint strong { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.85; }
-  .checkpoint p { font-size: 0.92rem; margin-top: 6px; line-height: 1.6; }
-
-  .complete-btn { display: block; margin: 16px 24px 20px; padding: 10px; background: #edf2f7; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 0.85rem; color: #4a5568; cursor: pointer; text-align: center; transition: all 0.2s; font-weight: 600; }
-  .complete-btn:hover { background: #e2e8f0; }
-  .complete-btn.done { background: #f0fff4; border-color: #9ae6b4; color: #276749; }
-
-  .hidden { display: none; }
-
-  .key-terms { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
-  .term { background: #ebf8ff; color: #2b6cb0; font-size: 0.78rem; font-weight: 600; padding: 4px 10px; border-radius: 20px; }
-
-  table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-top: 10px; }
-  th { background: #edf2f7; text-align: left; padding: 8px 10px; color: #4a5568; font-weight: 700; }
-  td { padding: 8px 10px; border-bottom: 1px solid #e2e8f0; color: #4a5568; }
-  tr:last-child td { border-bottom: none; }
-  tr:hover td { background: #f7fafc; }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f4f8;color:#1a202c}
+header{background:linear-gradient(135deg,#1b5e9e,#13b5ea);color:#fff;padding:28px 20px 20px}
+header h1{font-size:1.5rem;font-weight:800}
+header p{margin:6px 0 14px;opacity:.88;font-size:.9rem}
+.bar-bg{background:rgba(255,255,255,.25);border-radius:20px;height:10px}
+.bar-fill{background:#fff;border-radius:20px;height:10px;width:0%;transition:width .4s}
+.bar-label{font-size:.78rem;margin-top:5px;opacity:.9}
+nav{background:#fff;border-bottom:1px solid #e2e8f0;display:flex;flex-wrap:wrap;padding:0 12px}
+nav button{border:none;background:none;padding:10px 11px;cursor:pointer;font-size:.78rem;font-weight:600;color:#64748b;border-bottom:3px solid transparent}
+nav button.on{color:#1b5e9e;border-bottom-color:#13b5ea}
+#app{max-width:860px;margin:0 auto;padding:20px 14px 60px}
+.card{background:#fff;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:14px;overflow:hidden}
+.card-head{display:flex;align-items:center;gap:12px;padding:15px 18px;cursor:pointer;user-select:none}
+.wnum{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.82rem;color:#fff;flex-shrink:0}
+.wtitle{font-weight:700;font-size:.95rem;color:#1e293b}
+.wgoal{font-size:.78rem;color:#64748b;margin-top:2px}
+.tag{font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:20px;margin-left:auto;white-space:nowrap}
+.arrow{color:#94a3b8;font-size:1rem;margin-left:8px;flex-shrink:0}
+.card-body{padding:0 18px 18px;border-top:1px solid #f1f5f9;display:none}
+.card-body.open{display:block}
+.sec-title{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding-bottom:6px;border-bottom:2px solid #e8f4fd;margin:18px 0 10px}
+.topic{background:#f8fafc;border-left:4px solid #13b5ea;border-radius:0 8px 8px 0;padding:12px 14px;margin-bottom:10px}
+.topic h4{font-size:.88rem;font-weight:700;color:#1e293b;margin-bottom:6px}
+.topic p,.topic li{font-size:.83rem;color:#475569;line-height:1.65}
+.topic ul{padding-left:16px;margin-top:4px}
+.topic li{margin-bottom:3px}
+.box{border-radius:8px;padding:10px 13px;margin-top:8px}
+.box strong{font-size:.75rem;font-weight:700;display:block;margin-bottom:3px}
+.box p{font-size:.82rem;line-height:1.6}
+.tip-box{background:#eff8ff;border:1px solid #bfdbfe}
+.tip-box strong{color:#1d4ed8}
+.tip-box p{color:#1e3a5f}
+.au-box{background:#fffbeb;border:1px solid #fcd34d}
+.au-box strong{color:#92400e}
+.au-box p{color:#78350f}
+.prac-box{background:#f0fdf4;border:1px solid #86efac}
+.prac-box strong{color:#166534}
+.prac-box p,.prac-box li{color:#14532d;font-size:.82rem;line-height:1.6}
+.prac-box ul{padding-left:15px;margin-top:4px}
+table{width:100%;border-collapse:collapse;font-size:.8rem;margin-top:8px}
+th{background:#f1f5f9;text-align:left;padding:7px 9px;color:#334155;font-weight:700;border-bottom:2px solid #e2e8f0}
+td{padding:7px 9px;border-bottom:1px solid #e2e8f0;color:#475569}
+tr:last-child td{border-bottom:none}
+.ckpt{border-radius:10px;padding:14px 16px;margin-top:16px;color:#fff}
+.ckpt strong{font-size:.72rem;text-transform:uppercase;letter-spacing:.8px;opacity:.85}
+.ckpt p{font-size:.85rem;margin-top:5px;line-height:1.6}
+.done-btn{display:block;width:100%;margin-top:12px;padding:10px;border-radius:8px;font-size:.83rem;font-weight:700;cursor:pointer;border:2px solid #e2e8f0;background:#f8fafc;color:#64748b}
+.done-btn.done{background:#f0fdf4;border-color:#86efac;color:#15803d}
 </style>
 </head>
 <body>
 
 <header>
-  <h1>📊 Xero Full Course – Bookkeeper/Accountant Track 🇦🇺</h1>
-  <p>12 Weeks · 60 Hours · Payroll & BAS Focused · All content below</p>
-  <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
-  <div class="progress-label" id="progressLabel">0 of 12 weeks completed</div>
+  <div style="max-width:860px;margin:0 auto">
+    <h1>📊 Xero Full Course – Bookkeeper/Accountant Track 🇦🇺</h1>
+    <p>12 Weeks · 60 Hours · Payroll &amp; BAS Focused · Click any week to expand</p>
+    <div class="bar-bg"><div class="bar-fill" id="barFill"></div></div>
+    <div class="bar-label" id="barLabel">0 of 12 weeks completed</div>
+  </div>
 </header>
 
-<nav id="phaseNav">
-  <button class="active" onclick="showAll()">All Weeks</button>
-  <button onclick="filterPhase(1)">📘 Phase 1: Orientation</button>
-  <button onclick="filterPhase(2)">📗 Phase 2: Core Accounting</button>
-  <button onclick="filterPhase(3)">📙 Phase 3: Payroll</button>
-  <button onclick="filterPhase(4)">📕 Phase 4: BAS & GST</button>
-  <button onclick="filterPhase(5)">🏆 Phase 5: Certification</button>
-</nav>
-
-<main id="mainContent"></main>
+<nav id="nav"></nav>
+<div id="app"></div>
 
 <script>
-const weeks = [
-// ── PHASE 1 ──────────────────────────────────────────────────────────────────
-{
-  week: 1, phase: 1, phaseLabel: "Phase 1: Orientation", phaseColor: "#1b5e9e",
-  title: "Dashboard & Initial Setup",
-  goal: "Navigate Xero confidently and configure a new file from scratch",
-  content: `
-<div class="section">
-  <h3>1. Understanding Xero's Interface</h3>
-  <div class="topic">
-    <h4>The Dashboard</h4>
-    <p>The Xero dashboard is your command centre. It shows a real-time snapshot of your business finances:</p>
-    <ul>
-      <li><strong>Bank Accounts panel</strong> — shows balances and items needing reconciliation</li>
-      <li><strong>Invoices owed to you</strong> — outstanding receivables at a glance</li>
-      <li><strong>Bills to pay</strong> — aged payables summary</li>
-      <li><strong>Account watchlist</strong> — customisable balances for accounts you monitor regularly</li>
-      <li><strong>Cash flow graph</strong> — projected inflows and outflows</li>
-    </ul>
-    <div class="xero-tip"><strong>💡 Xero Tip</strong><p>You can customise the Dashboard by clicking "Edit layout" at the bottom of the page. Add or remove widgets to suit your workflow.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Main Navigation Menu</h4>
-    <p>The top menu bar contains all major areas:</p>
-    <ul>
-      <li><strong>Business</strong> — Invoices, Quotes, Purchase Orders, Bills, Products & Services, Expense Claims, Bank Transactions</li>
-      <li><strong>Accounting</strong> — Bank Accounts, Chart of Accounts, Budgets, Reports, Advanced (Journals, Fixed Assets)</li>
-      <li><strong>Payroll</strong> — Employees, Pay Runs, Leave, Timesheets, Pay Items, Settings</li>
-      <li><strong>Projects</strong> — Time & expense tracking per project</li>
-      <li><strong>Contacts</strong> — All customers and suppliers in one place</li>
-      <li><strong>Reports</strong> — All financial and management reports</li>
-    </ul>
-  </div>
-</div>
+var done = [];
 
-<div class="section">
-  <h3>2. Organisation Settings</h3>
-  <div class="topic">
-    <h4>How to Access: Settings → General Settings</h4>
-    <p>This is the first thing to configure for any new Xero file. Work through each section:</p>
-    <ul>
-      <li><strong>Organisation details</strong> — Legal name, ABN, address, phone, industry type</li>
-      <li><strong>Financial settings</strong> — Financial year end (usually 30 June in AU), tax basis (cash or accrual), lock dates</li>
-      <li><strong>Invoice settings</strong> — Default invoice due date, branding themes</li>
-      <li><strong>Email settings</strong> — Default email address for sending invoices and reminders</li>
-      <li><strong>Currency</strong> — Set default currency (AUD for Australian entities)</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>Financial year in Australia runs 1 July – 30 June. Set your financial year end to <strong>30 June</strong> in General Settings. This affects all reporting periods.</p></div>
-  </div>
-  <div class="topic">
-    <h4>GST & Tax Settings</h4>
-    <p>Navigate to: Settings → General Settings → Financial Settings</p>
-    <ul>
-      <li>Set <strong>GST Basis</strong>: Cash (tax when paid/received) or Accruals (tax when invoiced)</li>
-      <li>Set <strong>GST period</strong>: Monthly, Quarterly, or Annually — must match your ATO registration</li>
-      <li>Confirm your <strong>ABN</strong> is entered correctly (used on invoices and BAS)</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>Most small businesses report GST <strong>quarterly</strong>. Check your BAS registration with the ATO to confirm your correct reporting period before configuring this setting.</p></div>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>Open the Demo Company, go to Settings → General Settings → Financial Settings. Note the GST basis and period set there. Then in your own trial file, set up a fictitious Australian business with ABN 12 345 678 901, GST registered quarterly on a cash basis.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Users & Roles</h4>
-    <p>Settings → Users → Invite a User</p>
-    <ul>
-      <li><strong>Standard (Accounts Payable)</strong> — Can enter bills and expenses only</li>
-      <li><strong>Standard (Accounts Receivable)</strong> — Can create invoices and quotes</li>
-      <li><strong>Advisor</strong> — Full access including journals, bank reconciliation, and reports</li>
-      <li><strong>Read Only</strong> — Can view but not edit</li>
-      <li><strong>Invoice Only</strong> — Useful for staff who only need to create/approve invoices</li>
-    </ul>
-    <div class="xero-tip"><strong>💡 Xero Tip</strong><p>As a bookkeeper working for clients, you'll typically be added as an <strong>Advisor</strong>. If you have your own bookkeeping practice, use Xero HQ to manage all client files from one login.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>3. Chart of Accounts</h3>
-  <div class="topic">
-    <h4>What Is It?</h4>
-    <p>The Chart of Accounts (COA) is the master list of all accounts used to record transactions. In Xero, each account has:</p>
-    <ul>
-      <li><strong>Code</strong> — A number for easy reference (e.g., 200 = Sales, 400 = Bank)</li>
-      <li><strong>Name</strong> — Descriptive label</li>
-      <li><strong>Type</strong> — Asset, Liability, Equity, Revenue, or Expense</li>
-      <li><strong>Tax Rate</strong> — Default GST treatment for that account</li>
-      <li><strong>Description</strong> — Optional internal notes</li>
-    </ul>
-    <div class="key-terms">
-      <span class="term">Assets (100–199)</span>
-      <span class="term">Liabilities (200–299)</span>
-      <span class="term">Equity (300–399)</span>
-      <span class="term">Revenue (400–499)</span>
-      <span class="term">Expenses (500–699)</span>
-    </div>
-  </div>
-  <div class="topic">
-    <h4>Customising the COA for a Client</h4>
-    <p>Navigate to: Accounting → Chart of Accounts</p>
-    <ul>
-      <li>Xero provides a default COA — customise it to match the industry</li>
-      <li>Add accounts: Click "+ Add Account"</li>
-      <li>Edit accounts: Click the account name</li>
-      <li>Archive (not delete) unused accounts to keep history clean</li>
-      <li>Import a custom COA via CSV for new clients (Settings → Import)</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong>
-      <ul>
-        <li>In your trial file, add a new expense account: Code 612, Name "Subscriptions", Type "Expense", Tax "GST on Expenses"</li>
-        <li>Add a new revenue account: Code 415, Name "Consulting Income", Type "Revenue", Tax "GST on Income"</li>
-        <li>Archive the default account "Other Revenue" if your fictional business won't use it</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>4. Tracking Categories</h3>
-  <div class="topic">
-    <h4>What Are They and When To Use Them?</h4>
-    <p>Tracking categories let you slice your P&L by dimension — e.g., by department, location, or project — without creating separate accounts. You can have up to 2 tracking categories in Xero.</p>
-    <ul>
-      <li>Example: Category 1 = <strong>Department</strong> (Sales, Admin, Operations)</li>
-      <li>Example: Category 2 = <strong>Location</strong> (Sydney, Melbourne, Brisbane)</li>
-      <li>Applied at transaction level on invoices, bills, and journals</li>
-      <li>Reports can then be filtered by tracking category</li>
-    </ul>
-    <div class="xero-tip"><strong>💡 Xero Tip</strong><p>Tracking categories are optional but powerful for clients who want departmental P&Ls. Set them up before entering transactions — retrofitting is time-consuming.</p></div>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>In your trial file: Settings → General Settings → Tracking Categories. Create a category called "Department" with options: Admin, Sales, Operations. Save and then navigate to an invoice and notice the Tracking field has appeared.</p></div>
-  </div>
-</div>
-
-<div class="checkpoint">
-  <strong>✅ Week 1 Checkpoint</strong>
-  <p>You should now be able to: navigate all main Xero menus, set up an organisation from scratch (ABN, GST settings, financial year), customise the Chart of Accounts, invite users with correct roles, and create Tracking Categories. Test yourself by setting up a completely fresh trial file for a fictitious tradie business.</p>
-</div>`
-},
-
-{
-  week: 2, phase: 1, phaseLabel: "Phase 1: Orientation", phaseColor: "#1b5e9e",
-  title: "Bank Feeds & Reconciliation",
-  goal: "Connect bank feeds, create rules, and reconcile transactions accurately",
-  content: `
-<div class="section">
-  <h3>1. Connecting Bank Feeds</h3>
-  <div class="topic">
-    <h4>How Bank Feeds Work in Xero</h4>
-    <p>Bank feeds automatically import transactions from your client's bank directly into Xero — usually within 24 hours. This eliminates manual data entry and is one of Xero's biggest time-savers.</p>
-    <ul>
-      <li>Navigate to: <strong>Accounting → Bank Accounts → Add Bank Account</strong></li>
-      <li>Search for the bank (CommBank, ANZ, Westpac, NAB, Bendigo, etc.)</li>
-      <li>Follow the authorisation process (varies by bank — some are instant, others take 1–3 days)</li>
-      <li>Once connected, transactions flow in automatically</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>Xero connects to <strong>160+ Australian financial institutions</strong> including all major banks. For banks not supported, you can manually import a <strong>.CSV or .OFX</strong> bank statement file via "Import a Statement".</p></div>
-  </div>
-  <div class="topic">
-    <h4>Manual Statement Import (Backup Method)</h4>
-    <ul>
-      <li>Download a statement from internet banking in <strong>OFX, QFX, QBO, or CSV</strong> format</li>
-      <li>In Xero: Bank account → Import a Statement</li>
-      <li>Map columns if using CSV (Date, Description, Amount)</li>
-      <li>Xero will de-duplicate if you import the same period twice</li>
-    </ul>
-  </div>
-</div>
-
-<div class="section">
-  <h3>2. Bank Rules</h3>
-  <div class="topic">
-    <h4>What Are Bank Rules?</h4>
-    <p>Bank rules tell Xero how to automatically code recurring transactions. Once set up, Xero will suggest or automatically apply the rule whenever a matching transaction appears.</p>
-    <ul>
-      <li>Navigate to: <strong>Accounting → Bank Accounts → [Account] → Manage Rules → Add Rule</strong></li>
-      <li>Set conditions: e.g., "Description contains TELSTRA"</li>
-      <li>Set action: Code to account "Telephone & Internet", tax rate "GST on Expenses"</li>
-      <li>Optionally add Tracking Category and Contact</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong>
-      <ul>
-        <li>Create a bank rule for "OFFICE WORKS" → Account: Office Supplies (Expense), Tax: GST on Expenses</li>
-        <li>Create a rule for "PAYROLL" → Account: Wages & Salaries, Tax: BAS Excluded</li>
-        <li>Create a rule for "ATO" → Account: GST Liability, Tax: BAS Excluded</li>
-      </ul>
-    </div>
-    <div class="xero-tip"><strong>💡 Xero Tip</strong><p>Set rules to "Automatically accept" only for transactions you're 100% confident about (e.g., payroll, rent). For supplier bills with variable amounts, set to "Suggest" so you can review first.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>3. Reconciling Transactions</h3>
-  <div class="topic">
-    <h4>The Reconciliation Screen</h4>
-    <p>Navigate to: <strong>Accounting → Bank Accounts → [Account] → Reconcile [X] items</strong></p>
-    <p>Each bank line on the left must be matched with a Xero transaction on the right. There are three ways to reconcile:</p>
-    <ul>
-      <li><strong>Match</strong> — Link to an existing invoice or bill already in Xero (most common)</li>
-      <li><strong>Create</strong> — Directly code the transaction to an account if no invoice exists</li>
-      <li><strong>Transfer</strong> — Match a transfer between two Xero bank accounts</li>
-    </ul>
-  </div>
-  <div class="topic">
-    <h4>Matching Transactions</h4>
-    <ul>
-      <li>Xero auto-suggests matches based on amount and date</li>
-      <li>Click <strong>OK</strong> to confirm a match</li>
-      <li>If a customer pays multiple invoices in one payment, use <strong>"Find & Match"</strong> to select multiple invoices</li>
-      <li>For partial payments, match the amount and leave the balance outstanding</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>When a customer pays multiple invoices together, do NOT split the bank transaction. Use <strong>Find & Match</strong> to allocate across multiple invoices — this preserves the audit trail correctly.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Creating Transactions Directly</h4>
-    <p>When there's no existing invoice/bill (e.g., a bank fee, a direct debit for insurance):</p>
-    <ul>
-      <li>Click <strong>Create</strong> tab on the reconciliation screen</li>
-      <li>Enter: Who (Contact), What (Account), Why (Description), Tax rate</li>
-      <li>Click OK to create and reconcile simultaneously</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>In the Demo Company, reconcile all outstanding bank transactions. Aim to have zero unreconciled items at the end. Use Find & Match for any transactions with partial amounts.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Cash Coding (Bulk Reconciliation)</h4>
-    <p>For high-volume accounts, use <strong>Cash Coding</strong> to reconcile multiple transactions at once:</p>
-    <ul>
-      <li>Accounting → Bank Accounts → [Account] → Cash Coding</li>
-      <li>Assign accounts and tax rates to many lines at once in a spreadsheet-like view</li>
-      <li>Click Save — all selected lines are reconciled in one action</li>
-    </ul>
-  </div>
-</div>
-
-<div class="section">
-  <h3>4. Bank Reconciliation Report</h3>
-  <div class="topic">
-    <h4>Verifying Your Reconciliation is Complete</h4>
-    <p>After reconciling, always run the <strong>Bank Reconciliation Summary</strong> report:</p>
-    <ul>
-      <li>Reports → All Reports → Bank Reconciliation Summary</li>
-      <li>The report shows: Statement balance, Xero balance, Unreconciled items</li>
-      <li>The <strong>difference must be zero</strong> for a complete reconciliation</li>
-      <li>Investigate any differences — common causes: missing transactions, duplicate entries, or timing differences</li>
-    </ul>
-    <div class="xero-tip"><strong>💡 Xero Tip</strong><p>Run this report at the end of every month and save or screenshot it for your records. Many accountants require this report as evidence of reconciliation at year-end.</p></div>
-  </div>
-</div>
-
-<div class="checkpoint">
-  <strong>✅ Week 2 Checkpoint</strong>
-  <p>Reconcile a full month of transactions in the Demo Company. Run the Bank Reconciliation Summary and confirm the difference is $0. You should be comfortable with Match, Create, Transfer, and Find & Match scenarios.</p>
-</div>`
-},
-
-// ── PHASE 2 ──────────────────────────────────────────────────────────────────
-{
-  week: 3, phase: 2, phaseLabel: "Phase 2: Core Accounting", phaseColor: "#276749",
-  title: "Accounts Receivable",
-  goal: "Manage the full sales cycle from quote to payment in Xero",
-  content: `
-<div class="section">
-  <h3>1. The Sales Cycle in Xero</h3>
-  <div class="topic">
-    <h4>Quote → Invoice → Payment → Reconcile</h4>
-    <p>Xero handles the full AR workflow. Understanding the flow prevents errors:</p>
-    <ul>
-      <li><strong>Quote</strong> — Send to customer for approval. Does NOT affect accounts.</li>
-      <li><strong>Invoice (Draft)</strong> — Saved but not yet sent. Does NOT affect accounts.</li>
-      <li><strong>Invoice (Approved)</strong> — Sent to customer. NOW affects accounts (accrual basis).</li>
-      <li><strong>Payment allocated</strong> — Customer pays. Clears the debtor balance.</li>
-      <li><strong>Bank reconciled</strong> — Match payment to bank feed line. Completes the cycle.</li>
-    </ul>
-  </div>
-</div>
-
-<div class="section">
-  <h3>2. Creating Invoices</h3>
-  <div class="topic">
-    <h4>New Invoice: Business → Invoices → New Invoice</h4>
-    <ul>
-      <li><strong>To</strong> — Select or create a Contact (customer)</li>
-      <li><strong>Date</strong> — Invoice date (affects GST reporting period)</li>
-      <li><strong>Due Date</strong> — e.g., 14 days, 30 days, or a fixed date</li>
-      <li><strong>Invoice Number</strong> — Auto-generated or manual (must be unique)</li>
-      <li><strong>Line items</strong> — Description, Quantity, Unit Price, Account, Tax Rate</li>
-      <li><strong>Amounts are</strong> — Toggle between Tax Exclusive, Tax Inclusive, or No Tax</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>For GST-registered businesses, invoices over $82.50 (incl. GST) must show the GST amount separately. Xero does this automatically when you select the correct tax rate. Invoices must also include your <strong>ABN</strong>.</p></div>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>Create an approved invoice for $1,100 incl. GST to "ABC Pty Ltd" for "Consulting Services – March 2025". Use account "Consulting Income", tax rate "GST on Income (10%)". Email it using the default Xero template.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Repeating Invoices</h4>
-    <p>For regular clients with the same charge (e.g., monthly management fees):</p>
-    <ul>
-      <li>Business → Repeating Invoices → New Repeating Invoice</li>
-      <li>Set frequency: Weekly, Monthly, Annually</li>
-      <li>Set end date or leave open-ended</li>
-      <li>Choose: Auto-approve, Auto-send, or Notify to approve manually</li>
-    </ul>
-  </div>
-  <div class="topic">
-    <h4>Invoice Reminders</h4>
-    <p>Automate chasing overdue invoices: Settings → Email Settings → Invoice Reminders</p>
-    <ul>
-      <li>Set reminders at: 7 days before due, on due date, 7 days overdue, 14 days overdue</li>
-      <li>Customise the email text for each reminder</li>
-      <li>Individual invoices can have reminders turned on or off</li>
-    </ul>
-  </div>
-</div>
-
-<div class="section">
-  <h3>3. Credit Notes & Adjustments</h3>
-  <div class="topic">
-    <h4>Issuing a Credit Note</h4>
-    <p>When a customer returns goods or receives a discount after invoicing:</p>
-    <ul>
-      <li>Open the original invoice → Click <strong>Credit Note</strong> (or Business → Credit Notes → New)</li>
-      <li>Enter the credit amount and reason</li>
-      <li>Approve the credit note</li>
-      <li>Allocate it to the original invoice — reduces the outstanding balance</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>Credit notes adjust your GST liability. Xero automatically reduces the BAS amount when you allocate a credit note — always process them in the correct reporting period.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Overpayments</h4>
-    <p>When a customer pays more than the invoice amount:</p>
-    <ul>
-      <li>Reconcile the full bank amount against the invoice — Xero will create an <strong>overpayment</strong> automatically</li>
-      <li>The overpayment appears as a credit in the customer's account</li>
-      <li>Apply to a future invoice, or refund it via a new transaction</li>
-    </ul>
-  </div>
-  <div class="topic">
-    <h4>Writing Off Bad Debts</h4>
-    <ul>
-      <li>Open the unpaid invoice → Add a credit note for the outstanding amount</li>
-      <li>Code the credit note to a "Bad Debts" expense account</li>
-      <li>GST: Use "GST on Income" tax rate — this reduces your GST liability (you don't owe GST on money you didn't collect)</li>
-    </ul>
-  </div>
-</div>
-
-<div class="section">
-  <h3>4. AR Reports</h3>
-  <div class="topic">
-    <h4>Aged Receivables Summary</h4>
-    <p>Reports → Aged Receivables Summary</p>
-    <ul>
-      <li>Shows all outstanding invoices grouped by age: Current, 1–30, 31–60, 61–90, 90+ days</li>
-      <li>Run at month-end and send to your client so they can chase overdue accounts</li>
-      <li>Drill down to see individual invoices within each bucket</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>In the Demo Company: Run an Aged Receivables Summary as at today. Identify the top 3 overdue debtors. For one of them, create a credit note for $100 and allocate it to their oldest invoice.</p></div>
-  </div>
-</div>
-
-<div class="checkpoint">
-  <strong>✅ Week 3 Checkpoint</strong>
-  <p>Complete the full AR cycle: Create a quote → convert to invoice → approve → allocate a partial payment → handle the remaining balance as a credit note. Run the Aged Receivables Summary and confirm the balance matches your transactions.</p>
-</div>`
-},
-
-{
-  week: 4, phase: 2, phaseLabel: "Phase 2: Core Accounting", phaseColor: "#276749",
-  title: "Accounts Payable",
-  goal: "Manage the full purchase cycle from bill entry to payment",
-  content: `
-<div class="section">
-  <h3>1. The Purchase Cycle in Xero</h3>
-  <div class="topic">
-    <h4>Purchase Order → Bill → Payment → Reconcile</h4>
-    <ul>
-      <li><strong>Purchase Order</strong> — Optional. Sent to supplier. Does NOT affect accounts.</li>
-      <li><strong>Bill (Draft)</strong> — Saved but not approved. Does NOT affect accounts.</li>
-      <li><strong>Bill (Approved)</strong> — Posted. NOW affects accounts (accrual basis).</li>
-      <li><strong>Payment</strong> — Paid from bank. Clears the creditor balance.</li>
-      <li><strong>Bank reconcile</strong> — Match payment to bank feed. Completes the cycle.</li>
-    </ul>
-  </div>
-</div>
-
-<div class="section">
-  <h3>2. Entering Bills</h3>
-  <div class="topic">
-    <h4>Business → Bills to Pay → New Bill</h4>
-    <ul>
-      <li><strong>From</strong> — Supplier contact</li>
-      <li><strong>Date</strong> — Invoice date from the supplier's document</li>
-      <li><strong>Due date</strong> — Payment terms (e.g., 30 days from invoice date)</li>
-      <li><strong>Reference</strong> — Supplier's invoice number (critical for matching payments)</li>
-      <li><strong>Line items</strong> — Description, Qty, Price, Account, Tax</li>
-    </ul>
-    <div class="xero-tip"><strong>💡 Xero Tip</strong><p>Use <strong>Hubdoc</strong> (included with Xero) or <strong>Dext</strong> to capture and auto-enter bills via receipt scanning. This dramatically reduces manual data entry for high-volume AP work.</p></div>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>Enter a bill from "Telstra" for $220 incl. GST dated 1/3/2025, due 21/3/2025. Account: Telephone & Internet. Then enter a bill from "Office Works" for $55 incl. GST for Office Supplies.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Attaching Source Documents</h4>
-    <ul>
-      <li>Always attach the original supplier invoice PDF to the bill in Xero</li>
-      <li>Drag and drop, or click the paperclip icon on the bill</li>
-      <li>This creates a full audit trail — essential for ATO audits</li>
-    </ul>
-  </div>
-</div>
-
-<div class="section">
-  <h3>3. Batch Payments</h3>
-  <div class="topic">
-    <h4>Paying Multiple Bills at Once</h4>
-    <p>Business → Bills to Pay → Select bills → Batch Payment</p>
-    <ul>
-      <li>Select all bills due for payment</li>
-      <li>Click <strong>Batch Payment</strong></li>
-      <li>Set the payment date and bank account</li>
-      <li>Download the <strong>ABA file</strong> and upload to your bank's internet banking for payment</li>
-      <li>The payment is recorded in Xero against each bill</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>The <strong>ABA file</strong> (Australian Bankers' Association format) is the standard file format used by Australian banks for batch EFT payments. Every major AU bank accepts ABA files via internet banking.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Remittance Advices</h4>
-    <ul>
-      <li>After batch payment, Xero lets you email remittance advices to all suppliers at once</li>
-      <li>Click "Send Remittance" after completing a batch payment</li>
-      <li>Good professional practice — reduces supplier queries</li>
-    </ul>
-  </div>
-</div>
-
-<div class="section">
-  <h3>4. Credit Notes from Suppliers</h3>
-  <div class="topic">
-    <h4>When a Supplier Issues You a Credit</h4>
-    <ul>
-      <li>Business → Bills → New Credit Note (or open the original bill → Credit Note)</li>
-      <li>Enter the credit amount with the same account and tax coding as the original bill</li>
-      <li>Allocate the credit note to a future bill from the same supplier</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>In the Demo Company: Find a bill from any supplier. Create a $50 credit note against it. Then allocate that credit to reduce the outstanding balance. Run the Aged Payables Summary and confirm the net balance is correct.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>5. Aged Payables Report</h3>
-  <div class="topic">
-    <h4>Reports → Aged Payables Summary</h4>
-    <ul>
-      <li>Shows all outstanding bills by age and supplier</li>
-      <li>Use to prioritise payment runs — pay overdue suppliers first</li>
-      <li>Share with your client monthly so they can manage cash flow</li>
-      <li>Drill down to see individual bills per supplier</li>
-    </ul>
-  </div>
-</div>
-
-<div class="checkpoint">
-  <strong>✅ Week 4 Checkpoint</strong>
-  <p>Enter 5 bills from different suppliers, pay them using a batch payment, generate the ABA file, and run the Aged Payables Summary. Confirm all paid bills show as reconciled and the AP balance is $0 for those suppliers.</p>
-</div>`
-},
-
-{
-  week: 5, phase: 2, phaseLabel: "Phase 2: Core Accounting", phaseColor: "#276749",
-  title: "Fixed Assets & Financial Reporting",
-  goal: "Manage fixed assets with depreciation and read core financial reports",
-  content: `
-<div class="section">
-  <h3>1. Fixed Asset Register</h3>
-  <div class="topic">
-    <h4>What Is the Fixed Asset Register?</h4>
-    <p>The Fixed Asset Register (FAR) tracks assets the business owns that have a useful life of more than 12 months. In Xero, it automatically calculates and posts depreciation.</p>
-    <ul>
-      <li>Navigate to: <strong>Accounting → Advanced → Fixed Assets</strong></li>
-      <li>You must first set up <strong>Asset Types</strong> before adding assets</li>
-    </ul>
-  </div>
-  <div class="topic">
-    <h4>Setting Up Asset Types</h4>
-    <p>Accounting → Advanced → Fixed Assets → Settings → Asset Types → Add</p>
-    <table>
-      <tr><th>Asset Type</th><th>Depreciation Method</th><th>Rate / Life</th><th>Depreciation A/C</th></tr>
-      <tr><td>Motor Vehicles</td><td>Diminishing Value</td><td>25%</td><td>Depreciation – Vehicles</td></tr>
-      <tr><td>Office Equipment</td><td>Straight Line</td><td>5 years</td><td>Depreciation – Equipment</td></tr>
-      <tr><td>Computer Equipment</td><td>Diminishing Value</td><td>33.33%</td><td>Depreciation – Computers</td></tr>
-    </table>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>The ATO allows both <strong>Diminishing Value (DV)</strong> and <strong>Prime Cost (Straight Line)</strong> depreciation methods. Xero's "Straight Line" = Prime Cost. For tax purposes, use ATO's effective life guidelines. The <strong>instant asset write-off</strong> threshold has changed — check ato.gov.au for the current limit.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Adding an Asset</h4>
-    <ul>
-      <li>Accounting → Fixed Assets → New Asset</li>
-      <li>Enter: Asset Name, Asset Number, Asset Type, Purchase Date, Purchase Price</li>
-      <li>Confirm depreciation settings inherited from the Asset Type</li>
-      <li>Click <strong>Register</strong> to activate the asset</li>
-      <li>Running depreciation: Fixed Assets → Run Depreciation (at month-end)</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>Add a new Motor Vehicle: "Ford Ranger – ABC123", purchased 1 July 2024 for $55,000 incl. GST. Set up the correct Asset Type first. Register the asset and run depreciation for 3 months. Check that the depreciation journal entries were created in Accounting → Advanced → Manual Journals.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>2. Financial Reports</h3>
-  <div class="topic">
-    <h4>Profit & Loss (Income Statement)</h4>
-    <p>Reports → Profit and Loss</p>
-    <ul>
-      <li>Shows Revenue minus Expenses = Net Profit for a period</li>
-      <li><strong>Compare periods</strong>: Select "Compare to previous period" to show month-on-month or year-on-year</li>
-      <li><strong>Compare to budget</strong>: If a budget is set up, show variance analysis</li>
-      <li>Filter by Tracking Category for departmental P&Ls</li>
-      <li>Adjust decimal places and column layout in the report settings</li>
-    </ul>
-    <div class="xero-tip"><strong>💡 Xero Tip</strong><p>Save custom report layouts using the <strong>Save as Custom</strong> button. Your saved reports appear under Reports → Custom Reports, making month-end reporting faster.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Balance Sheet</h4>
-    <p>Reports → Balance Sheet</p>
-    <ul>
-      <li>Shows Assets = Liabilities + Equity at a point in time</li>
-      <li>Check that <strong>Retained Earnings</strong> reconciles year-to-year</li>
-      <li>Review <strong>GST payable/receivable</strong> balances — must match your BAS</li>
-      <li>Check <strong>Accounts Receivable</strong> and <strong>Accounts Payable</strong> control accounts match your aged reports</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>The GST on the Balance Sheet should show either: (a) GST Payable (liability) if you owe ATO money, or (b) GST Receivable (asset) if the ATO owes you a refund. This must match your BAS calculation.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Cash Flow Statement</h4>
-    <p>Reports → Cash Flow Statement</p>
-    <ul>
-      <li>Shows how cash moved during a period: Operating, Investing, Financing activities</li>
-      <li>Reconciles net profit to actual cash movement</li>
-      <li>Key for clients who are profitable but cash-poor</li>
-    </ul>
-  </div>
-  <div class="topic">
-    <h4>Budget Manager</h4>
-    <p>Accounting → Budget Manager → Add Budget</p>
-    <ul>
-      <li>Enter monthly budgeted amounts per account</li>
-      <li>Import from Excel for faster entry</li>
-      <li>Once set, the P&L report can show actuals vs budget variance</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>In the Demo Company: Run a P&L for the last 6 months. Compare it to the previous 6 months. Identify the 3 accounts with the largest variance. Then run a Balance Sheet and verify the AR and AP control account balances match the Aged Reports.</p></div>
-  </div>
-</div>
-
-<div class="checkpoint">
-  <strong>✅ Week 5 Checkpoint</strong>
-  <p>Register a fixed asset, run depreciation, and confirm the journal entries. Run all 3 core financial statements and verify the Balance Sheet balances (AR, AP, GST) tie to their respective sub-reports.</p>
-</div>`
-},
-
-{
-  week: 6, phase: 2, phaseLabel: "Phase 2: Core Accounting", phaseColor: "#276749",
-  title: "Corrections, Journals & Conversion",
-  goal: "Fix errors professionally and manage opening balances",
-  content: `
-<div class="section">
-  <h3>1. Manual Journals</h3>
-  <div class="topic">
-    <h4>When to Use Manual Journals</h4>
-    <p>Journals are used for entries that can't be created through normal workflows:</p>
-    <ul>
-      <li>Accruals — recording expenses incurred but not yet billed</li>
-      <li>Prepayments — allocating prepaid expenses across periods</li>
-      <li>Depreciation (if not using Fixed Asset Register)</li>
-      <li>Year-end adjustments from your accountant</li>
-      <li>Correcting miscoded transactions that have already been reconciled</li>
-    </ul>
-    <p>Navigate to: <strong>Accounting → Advanced → Manual Journals → New Journal</strong></p>
-    <ul>
-      <li>Every journal must balance: <strong>Total Debits = Total Credits</strong></li>
-      <li>Add a clear narration explaining the purpose</li>
-      <li>Select "Show journal on cash basis reports" only if applicable</li>
-    </ul>
-  </div>
-  <div class="topic">
-    <h4>Accrual Example</h4>
-    <p>Electricity bill for March received in April, estimated $330 incl. GST:</p>
-    <table>
-      <tr><th>Account</th><th>Debit</th><th>Credit</th><th>Tax</th></tr>
-      <tr><td>Electricity Expense</td><td>$300</td><td></td><td>GST on Expenses</td></tr>
-      <tr><td>GST</td><td>$30</td><td></td><td>BAS Excluded</td></tr>
-      <tr><td>Accrued Liabilities</td><td></td><td>$330</td><td>BAS Excluded</td></tr>
-    </table>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>Accruals journal entries that include GST require careful coding. The GST component must be allocated correctly to ensure your BAS reflects the right amount. Always reverse accruals in the following month.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Repeating Journals</h4>
-    <ul>
-      <li>For monthly accruals or prepayment amortisation, set up a Repeating Journal</li>
-      <li>Accounting → Advanced → Manual Journals → New Repeating Journal</li>
-      <li>Set frequency and end date</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong>
-      <ul>
-        <li>Create a prepayment journal: Insurance premium $1,200 paid in July, allocate $100/month for 12 months. Dr Insurance Expense $100, Cr Prepayments $100 each month.</li>
-        <li>Create an accrual for wages of $3,500 owing at 31 March. Reverse it on 1 April.</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>2. Correcting Miscoded Transactions</h3>
-  <div class="topic">
-    <h4>Method 1: Edit the Transaction (Before Reconciliation)</h4>
-    <ul>
-      <li>If a transaction hasn't been reconciled, simply open it and edit the account/tax code</li>
-      <li>Save and the correction is immediate</li>
-    </ul>
-  </div>
-  <div class="topic">
-    <h4>Method 2: Journal Entry (After Reconciliation)</h4>
-    <p>If a transaction is already reconciled, do NOT unreconcile it. Instead:</p>
-    <ul>
-      <li>Create a manual journal to move the amount from the wrong account to the correct one</li>
-      <li>Dr Correct Account, Cr Wrong Account (for the net amount excl. GST)</li>
-      <li>Adjust GST if the tax coding was also wrong</li>
-    </ul>
-  </div>
-  <div class="topic">
-    <h4>Method 3: Find & Recode</h4>
-    <p>Accounting → Advanced → Find & Recode</p>
-    <ul>
-      <li>Search for transactions with specific criteria (e.g., all transactions coded to "Suspense")</li>
-      <li>Bulk recode multiple transactions to the correct account at once</li>
-      <li>Creates an audit trail of the change</li>
-    </ul>
-    <div class="xero-tip"><strong>💡 Xero Tip</strong><p><strong>Find & Recode</strong> is one of Xero's most powerful cleanup tools. Use it at year-end to fix any systemic miscoding before the accountant reviews the file.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>3. Conversion Balances (New Client Setup)</h3>
-  <div class="topic">
-    <h4>What Are Conversion Balances?</h4>
-    <p>When a client switches to Xero from MYOB, Reckon, QuickBooks, or spreadsheets, you need to enter the opening balances as at the conversion date.</p>
-    <p>Navigate to: <strong>Accounting → Advanced → Conversion Balances</strong></p>
-    <ul>
-      <li>Enter the trial balance as at the day before the Xero start date</li>
-      <li>The Conversion Balances must balance (Assets = Liabilities + Equity)</li>
-      <li>Enter AR and AP as aggregate amounts (individual invoices added separately)</li>
-      <li>Enter Bank balance — must match the actual bank statement</li>
-    </ul>
-  </div>
-  <div class="topic">
-    <h4>Setting Up Historical Invoices & Bills</h4>
-    <ul>
-      <li>Enter any outstanding (unpaid) invoices at conversion date individually</li>
-      <li>Enter any outstanding bills at conversion date individually</li>
-      <li>These will reconcile when the payments come through in Xero</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>In your trial file: Set your conversion date to 1 July 2024. Enter a trial balance with: Cash at Bank $25,000, AR $8,500, Equipment $15,000, AP $4,200, GST Payable $1,800, Bank Loan $10,000, Equity $32,500. Verify the conversion screen shows $0 difference before saving.</p></div>
-  </div>
-</div>
-
-<div class="checkpoint">
-  <strong>✅ Week 6 Checkpoint</strong>
-  <p>Create and reverse an accrual journal. Use Find & Recode to fix a batch of miscoded transactions. Set up conversion balances for a new client file with zero difference. Run the Balance Sheet and confirm it matches your input.</p>
-</div>`
-},
-
-// ── PHASE 3 ──────────────────────────────────────────────────────────────────
-{
-  week: 7, phase: 3, phaseLabel: "Phase 3: Payroll", phaseColor: "#7b341e",
-  title: "Payroll Setup",
-  goal: "Configure Xero Payroll from scratch ready for processing pay runs",
-  content: `
-<div class="section">
-  <h3>1. Payroll Settings Overview</h3>
-  <div class="topic">
-    <h4>Payroll → Settings</h4>
-    <p>Before adding employees, configure these payroll settings:</p>
-    <ul>
-      <li><strong>Organisation Details</strong> — ABN, payroll contact, registered name</li>
-      <li><strong>Pay Calendars</strong> — Define your pay periods (weekly, fortnightly, monthly)</li>
-      <li><strong>Superannuation Funds</strong> — Add the super funds your employees contribute to</li>
-      <li><strong>Pay Items</strong> — Ordinary time, overtime, leave types, deductions, allowances</li>
-      <li><strong>Payroll Accounts</strong> — Map payroll items to your Chart of Accounts</li>
-    </ul>
-  </div>
-  <div class="topic">
-    <h4>Pay Calendars</h4>
-    <p>Payroll → Settings → Pay Calendars → Add</p>
-    <ul>
-      <li>Set the frequency: <strong>Weekly, Fortnightly, Monthly, or Four-weekly</strong></li>
-      <li>Set the payment date (e.g., Thursday, last day of month)</li>
-      <li>Xero automatically calculates all future pay period dates from this setting</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>Create two pay calendars: (1) "Fortnightly – Thursday" starting 3 July 2024. (2) "Monthly – Last Day" starting 31 July 2024.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>2. Super Funds</h3>
-  <div class="topic">
-    <h4>Adding Super Funds</h4>
-    <p>Payroll → Settings → Superannuation Funds → Add Superannuation Fund</p>
-    <ul>
-      <li>Search for the fund by name or ABN (Xero has a database of registered funds)</li>
-      <li>Add your employer membership number</li>
-      <li>Common AU funds: Australian Super, REST, HESTA, Hostplus, Cbus, QSuper</li>
-      <li>For employees with a <strong>Self Managed Super Fund (SMSF)</strong>: add manually with ABN, ESA (Electronic Service Address), and BSB/Account</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>Since <strong>1 November 2021</strong>, employers must use <strong>SuperStream</strong> for all super contributions. Xero integrates with SuperStream-compliant clearing houses. The <strong>SGC rate is 11.5%</strong> as of 2024–25, rising to 12% on 1 July 2025.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>3. Pay Items</h3>
-  <div class="topic">
-    <h4>Types of Pay Items</h4>
-    <p>Payroll → Settings → Pay Items</p>
-    <table>
-      <tr><th>Category</th><th>Examples</th><th>Notes</th></tr>
-      <tr><td>Earnings</td><td>Ordinary Time, Overtime, Casual Loading</td><td>Taxable by default</td></tr>
-      <tr><td>Leave</td><td>Annual Leave, Personal/Carer's Leave, Long Service Leave</td><td>Maps to Leave Types</td></tr>
-      <tr><td>Allowances</td><td>Car Allowance, Meal Allowance, Tool Allowance</td><td>May or may not be taxable</td></tr>
-      <tr><td>Deductions</td><td>Salary Sacrifice, Union Fees, Child Support</td><td>Pre- or post-tax</td></tr>
-      <tr><td>Superannuation</td><td>SGC, Salary Sacrifice Super, RESC</td><td>Must be set up correctly for STP</td></tr>
-      <tr><td>Reimbursements</td><td>Expense Reimbursement</td><td>Not taxable</td></tr>
-    </table>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p><strong>Salary sacrifice to super</strong> reduces the employee's taxable income. Code it as a <strong>Deduction – Pre-tax</strong> and set it to reduce the super calculation base correctly. Incorrect setup is a common STP reporting error.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>4. Setting Up Employees</h3>
-  <div class="topic">
-    <h4>Payroll → Employees → Add Employee</h4>
-    <p>Complete each tab carefully:</p>
-    <ul>
-      <li><strong>Details</strong> — Full legal name (must match ATO records), DOB, gender, start date</li>
-      <li><strong>Employment</strong> — Employment type (Full Time, Part Time, Casual), pay calendar, pay template</li>
-      <li><strong>Tax</strong> — TFN declaration: residency, tax file number, tax offsets, HELP/HECS debt, no TFN withholding</li>
-      <li><strong>Super</strong> — Fund, membership number, contribution amounts/percentages</li>
-      <li><strong>Bank Accounts</strong> — BSB and account number for EFT payment</li>
-      <li><strong>Leave</strong> — Opening leave balances, leave loading %, accrual rates</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>A completed <strong>Tax File Number Declaration</strong> form must be received from new employees before their first pay run. Without it, withhold tax at the top marginal rate (47% incl. Medicare). The form must be submitted to the ATO within 14 days.</p></div>
-    <div class="practice"><strong>🛠 Practice Task</strong>
-      <ul>
-        <li>Create a full-time employee: Jane Smith, TFN 123456782, salary $65,000 p.a., fortnightly pay, Australian Super, no HELP debt, annual leave loading 17.5%</li>
-        <li>Create a casual employee: Tom Jones, TFN 987654321, $28.50/hr, weekly pay, REST Super</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="checkpoint">
-  <strong>✅ Week 7 Checkpoint</strong>
-  <p>Set up a complete payroll configuration: 2 pay calendars, 3 super funds, at least 6 pay items, and 3 employees (1 full-time, 1 part-time, 1 casual) with all tabs completed. Verify the payroll accounts map correctly to your COA.</p>
-</div>`
-},
-
-{
-  week: 8, phase: 3, phaseLabel: "Phase 3: Payroll", phaseColor: "#7b341e",
-  title: "Processing Payroll",
-  goal: "Run pay runs, manage leave, and handle terminations correctly",
-  content: `
-<div class="section">
-  <h3>1. Processing a Pay Run</h3>
-  <div class="topic">
-    <h4>Payroll → Pay Runs → New Pay Run</h4>
-    <ol style="padding-left:18px;font-size:0.88rem;color:#4a5568;line-height:1.7">
-      <li>Select the Pay Calendar and Pay Period</li>
-      <li>Xero auto-populates pay for all employees in that calendar</li>
-      <li>Review each employee's pay: earnings, deductions, leave, tax, and net pay</li>
-      <li>Make adjustments: add overtime, allowances, or leave</li>
-      <li>Check the <strong>PAYG Withholding</strong> amount (Xero calculates this using ATO tax tables)</li>
-      <li>Click <strong>Post Pay Run</strong> — this records all journal entries and STP submission</li>
-      <li>Pay employees via bank transfer (download ABA file if needed)</li>
-    </ol>
-    <div class="xero-tip"><strong>💡 Xero Tip</strong><p>Before posting, always check the <strong>Pay Run Comparison</strong> — it shows differences from the previous pay run. If someone's tax or super looks unusual, investigate before posting.</p></div>
-  </div>
-  <div class="topic">
-    <h4>The Payroll Journal (Behind the Scenes)</h4>
-    <p>When you post a pay run, Xero automatically creates this journal:</p>
-    <table>
-      <tr><th>Account</th><th>Debit</th><th>Credit</th></tr>
-      <tr><td>Wages & Salaries Expense</td><td>Gross wages</td><td></td></tr>
-      <tr><td>Superannuation Expense</td><td>SGC amount</td><td></td></tr>
-      <tr><td>PAYG Withholding Payable</td><td></td><td>Tax withheld</td></tr>
-      <tr><td>Superannuation Payable</td><td></td><td>SGC amount</td></tr>
-      <tr><td>Wages Payable / Bank</td><td></td><td>Net wages</td></tr>
-    </table>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p><strong>PAYG Withholding</strong> must be paid to the ATO on time — either monthly (if annual withholding &gt; $25,000) or quarterly (if less). Xero's IAS helps you calculate this. Late payment attracts <strong>penalties and interest</strong> from the ATO.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>2. Managing Leave</h3>
-  <div class="topic">
-    <h4>Leave Types in Australia</h4>
-    <table>
-      <tr><th>Leave Type</th><th>Entitlement</th><th>Notes</th></tr>
-      <tr><td>Annual Leave</td><td>4 weeks p.a. (full time)</td><td>Plus 17.5% loading for many awards</td></tr>
-      <tr><td>Personal / Carer's Leave</td><td>10 days p.a.</td><td>Includes sick leave</td></tr>
-      <tr><td>Long Service Leave</td><td>Varies by state</td><td>QLD: 8.67 weeks after 10 years</td></tr>
-      <tr><td>Parental Leave</td><td>12 months unpaid (NES) + paid govt scheme</td><td>Employer-funded varies by EA</td></tr>
-      <tr><td>Compassionate Leave</td><td>2 days per occasion</td><td>Death or life-threatening illness</td></tr>
-      <tr><td>Community Service</td><td>Unlimited (jury duty)</td><td>Make-up pay for jury duty</td></tr>
-    </table>
-  </div>
-  <div class="topic">
-    <h4>Processing Leave in a Pay Run</h4>
-    <ul>
-      <li>In the pay run, click the employee → Add Leave</li>
-      <li>Select leave type, dates, and hours</li>
-      <li>Xero reduces the leave balance automatically</li>
-      <li>Annual leave loading is added automatically if configured</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong>
-      <ul>
-        <li>Process a fortnightly pay run for Jane Smith (full-time) including 3 days annual leave</li>
-        <li>Process a weekly pay run for Tom Jones (casual) with 12 hours ordinary time and 3 hours overtime</li>
-        <li>Verify the PAYG withholding is calculated correctly for each</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>3. Termination Pays</h3>
-  <div class="topic">
-    <h4>How to Terminate an Employee in Xero</h4>
-    <p>Payroll → Employees → [Employee] → Employment → Termination</p>
-    <ol style="padding-left:18px;font-size:0.88rem;color:#4a5568;line-height:1.7">
-      <li>Enter the termination date and reason</li>
-      <li>Xero calculates unused annual leave and leave loading entitlements</li>
-      <li>Process a final pay run which includes: remaining ordinary pay + unused leave payout</li>
-      <li>Check if a <strong>Genuine Redundancy Payment</strong> applies (different tax treatment)</li>
-      <li>STP Final Event is automatically flagged</li>
-    </ol>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>Unused annual leave paid on termination is taxed at the employee's marginal rate (not the termination payment rate). Long service leave and genuine redundancy payments have special ATO tax treatment. Always check the <strong>ATO's Withholding for employees leaving</strong> guidance.</p></div>
-  </div>
-</div>
-
-<div class="checkpoint">
-  <strong>✅ Week 8 Checkpoint</strong>
-  <p>Process a complete pay cycle: run pays for all employees including one with leave, verify the payroll journal, check PAYG withholding amounts against the ATO tax tables, and process a termination pay. Confirm leave balances are updated correctly.</p>
-</div>`
-},
-
-{
-  week: 9, phase: 3, phaseLabel: "Phase 3: Payroll", phaseColor: "#7b341e",
-  title: "STP & Superannuation",
-  goal: "Master Single Touch Payroll Phase 2 reporting and SuperStream payments",
-  content: `
-<div class="section">
-  <h3>1. Single Touch Payroll (STP) Phase 2</h3>
-  <div class="topic">
-    <h4>What Is STP?</h4>
-    <p>Single Touch Payroll is the ATO's real-time payroll reporting system. Every time you post a pay run in Xero, an STP report is automatically sent to the ATO. This replaces the old Payment Summary Annual Report (Group Certificates).</p>
-    <ul>
-      <li><strong>STP Phase 1</strong> — Introduced July 2018. Basic gross/tax/super data.</li>
-      <li><strong>STP Phase 2</strong> — Expanded data including income types, disaggregated earnings, and child support. Mandatory since January 2022.</li>
-    </ul>
-  </div>
-  <div class="topic">
-    <h4>STP Phase 2 – Key Changes You Must Know</h4>
-    <table>
-      <tr><th>STP2 Requirement</th><th>What It Means in Xero</th></tr>
-      <tr><td>Disaggregated gross income</td><td>Separate ordinary, overtime, leave, allowances — not just one "gross" figure</td></tr>
-      <tr><td>Income type</td><td>Flag each earnings type: SAL (salary), WSL (working holiday maker), VOL (volunteer super)</td></tr>
-      <tr><td>Child support deductions</td><td>Report directly to Child Support Agency via STP</td></tr>
-      <tr><td>Lump sum payments</td><td>Classify correctly (A, B, D, E) for tax purposes</td></tr>
-      <tr><td>Country code</td><td>Required for working holiday makers</td></tr>
-    </table>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>Xero is <strong>STP Phase 2 compliant</strong>. However, you must ensure all Pay Items are correctly classified (the income type and category must be set in Pay Item settings) before the first pay run.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Checking STP Submissions</h4>
-    <p>Payroll → Single Touch Payroll → STP Submissions</p>
-    <ul>
-      <li>Each pay run generates an STP event — check the status is <strong>"Accepted"</strong></li>
-      <li>"Pending" means it hasn't reached the ATO yet (wait 24–48 hours)</li>
-      <li>"Error" means you must investigate and resubmit</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>In Payroll → STP Submissions, review the submission history. Identify any errors. Research what the error code means on the ATO's website and how to correct it.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>2. EOFY STP Finalisation</h3>
-  <div class="topic">
-    <h4>Finalising the Income Year via STP</h4>
-    <p>At the end of each financial year (after the last June pay run but before 14 July):</p>
-    <ol style="padding-left:18px;font-size:0.88rem;color:#4a5568;line-height:1.7">
-      <li>Review all employees' year-to-date figures for accuracy</li>
-      <li>Payroll → Single Touch Payroll → Finalise Payroll Year</li>
-      <li>Select the financial year and all employees</li>
-      <li>Submit the finalisation declaration to the ATO</li>
-      <li>Employees can then access their income statement via <strong>myGov</strong> — no more group certificates!</li>
-    </ol>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>Once finalised, employees' income statements are marked "Tax Ready" in myGov and their accountant can lodge their individual tax return. If you discover an error after finalisation, you can submit an amended finalisation.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>3. Superannuation Payments via Xero</h3>
-  <div class="topic">
-    <h4>Paying Super Through Xero</h4>
-    <p>Payroll → Superannuation → [Pay Period] → Submit</p>
-    <ul>
-      <li>Xero connects to the <strong>Xero SuperStream</strong> clearing house (or external ones like Beam, QuickSuper)</li>
-      <li>After posting a pay run, navigate to the super tab and review the super liability</li>
-      <li>Click "Submit" to send the super payment instruction</li>
-      <li>Funds are debited from your bank account and distributed to each employee's fund</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong>
-      <p>Super must be paid by the <strong>28th day after the end of each quarter</strong>:</p>
-      <ul>
-        <li>Q1 (Jul–Sep): due 28 October</li>
-        <li>Q2 (Oct–Dec): due 28 January</li>
-        <li>Q3 (Jan–Mar): due 28 April</li>
-        <li>Q4 (Apr–Jun): due 28 July</li>
-      </ul>
-      <p>Late super payments lose their <strong>tax deductibility</strong> and attract the <strong>Super Guarantee Charge (SGC)</strong> — a penalty-laden charge payable to the ATO.</p>
-    </div>
-  </div>
-  <div class="topic">
-    <h4>Salary Sacrifice & RESC</h4>
-    <ul>
-      <li><strong>Salary Sacrifice to Super</strong>: Pre-tax deduction that increases super but reduces gross taxable income. Employee pays 15% contributions tax instead of their marginal rate.</li>
-      <li><strong>RESC (Reportable Employer Super Contributions)</strong>: Super contributions above the SGC that the employer makes because of employee's individual election. Must be reported separately in STP2.</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong>
-      <ul>
-        <li>Set up a salary sacrifice arrangement for Jane Smith: $200 per fortnight extra super on top of SGC</li>
-        <li>Process a pay run and verify the salary sacrifice shows as a pre-tax deduction reducing her taxable gross</li>
-        <li>Check the STP submission includes the RESC amount correctly</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="checkpoint">
-  <strong>✅ Week 9 Checkpoint</strong>
-  <p>Process a full quarterly payroll cycle, confirm all STP submissions are accepted, pay super through SuperStream, and complete the EOFY finalisation process. Verify employees' income statements show correctly in your demo environment.</p>
-</div>`
-},
-
-// ── PHASE 4 ──────────────────────────────────────────────────────────────────
-{
-  week: 10, phase: 4, phaseLabel: "Phase 4: BAS & GST", phaseColor: "#553c9a",
-  title: "GST Foundations",
-  goal: "Master GST coding in Xero and understand the GST Audit Report",
-  content: `
-<div class="section">
-  <h3>1. GST Tax Codes in Xero</h3>
-  <div class="topic">
-    <h4>The Essential Tax Rates You Must Know</h4>
-    <table>
-      <tr><th>Tax Rate Name</th><th>Rate</th><th>When to Use</th></tr>
-      <tr><td>GST on Income</td><td>10%</td><td>Taxable sales/income your business makes</td></tr>
-      <tr><td>GST on Expenses</td><td>10%</td><td>Business expenses that include GST</td></tr>
-      <tr><td>GST Free Income</td><td>0%</td><td>Sales that are GST-free (basic food, exports, health)</td></tr>
-      <tr><td>GST Free Expenses</td><td>0%</td><td>Purchases that are GST-free (e.g., ASIC fees, some insurance)</td></tr>
-      <tr><td>BAS Excluded</td><td>N/A</td><td>Wages, super, loan repayments, ATO payments — NOT on BAS</td></tr>
-      <tr><td>Input Taxed</td><td>N/A</td><td>Financial supplies (bank interest, residential rent)</td></tr>
-    </table>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p><strong>BAS Excluded</strong> is one of the most commonly misused codes. Use it for: payroll, PAYG instalments, ATO payments, loan principal repayments, and dividends. These don't belong on the BAS at all. Using "GST Free" instead of "BAS Excluded" will distort your BAS.</p></div>
-  </div>
-  <div class="topic">
-    <h4>Common GST Coding Mistakes</h4>
-    <table>
-      <tr><th>Transaction</th><th>Wrong Code</th><th>Correct Code</th></tr>
-      <tr><td>Bank fees</td><td>GST on Expenses</td><td>Input Taxed (no GST on financial supplies)</td></tr>
-      <tr><td>Wages paid</td><td>GST Free Expenses</td><td>BAS Excluded</td></tr>
-      <tr><td>Superannuation</td><td>GST on Expenses</td><td>BAS Excluded</td></tr>
-      <tr><td>Basic groceries</td><td>GST on Expenses</td><td>GST Free Expenses</td></tr>
-      <tr><td>Export sales</td><td>GST on Income</td><td>GST Free Income</td></tr>
-      <tr><td>Residential rent received</td><td>GST on Income</td><td>Input Taxed</td></tr>
-      <tr><td>Private use portion</td><td>GST on Expenses</td><td>Split: GST on Expenses (business %) + BAS Excluded (private %)</td></tr>
-    </table>
-  </div>
-</div>
-
-<div class="section">
-  <h3>2. GST Reporting Basis</h3>
-  <div class="topic">
-    <h4>Cash vs Accruals GST</h4>
-    <ul>
-      <li><strong>Cash basis</strong>: GST is reported when cash is received/paid. Suits small businesses with uneven cash flow.</li>
-      <li><strong>Accruals basis</strong>: GST is reported when the invoice is raised/received, regardless of payment. Required for businesses with turnover &gt; $10m.</li>
-      <li>Most small businesses under $10m can choose either. Check the client's ATO registration.</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>If a business is on <strong>cash basis GST</strong>, you must ensure Xero is set to "Cash" in Financial Settings. Running a BAS on the wrong basis is a reportable error — the ATO takes this seriously.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>3. GST Audit Report</h3>
-  <div class="topic">
-    <h4>Your Most Important Pre-BAS Check</h4>
-    <p>Reports → Tax → GST Audit Report</p>
-    <ul>
-      <li>Shows every transaction that affects the BAS, grouped by tax rate</li>
-      <li>Check for transactions coded to the wrong tax rate</li>
-      <li>Look for unusually large amounts that need investigation</li>
-      <li>Check the "BAS Excluded" section — verify wages, super, and loan repayments are there and NOT in GST sections</li>
-      <li>The GST Collected and GST Paid totals should roll into your BAS</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong>
-      <ul>
-        <li>In the Demo Company: Run the GST Audit Report for the last quarter</li>
-        <li>Identify at least 2 transactions that look incorrectly coded and note what correction you would make</li>
-        <li>Check if bank fees are coded as Input Taxed (they should be)</li>
-        <li>Verify all payroll items are in BAS Excluded</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>4. Partial GST Claims (Private Use)</h3>
-  <div class="topic">
-    <h4>When a Purchase Is Partly for Business, Partly Private</h4>
-    <ul>
-      <li>Example: A mobile phone used 60% for business, 40% personal</li>
-      <li>Bill: $220 incl. GST → Split the line item:</li>
-      <li>Line 1: $132 (60%) → GST on Expenses (claim $12 GST)</li>
-      <li>Line 2: $88 (40%) → BAS Excluded (no GST claim)</li>
-      <li>Motor vehicles: Apply the same logic based on logbook percentage</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>The ATO requires a <strong>vehicle logbook</strong> (12 consecutive weeks) to substantiate business use % for cars. Without it, use the ATO cents-per-kilometre method instead, which doesn't involve GST claims on the vehicle itself.</p></div>
-  </div>
-</div>
-
-<div class="checkpoint">
-  <strong>✅ Week 10 Checkpoint</strong>
-  <p>Recode any incorrectly coded transactions in the Demo Company. Run the GST Audit Report and explain what each section means. Create 3 transactions with partial GST claims and verify they appear correctly in the report.</p>
-</div>`
-},
-
-{
-  week: 11, phase: 4, phaseLabel: "Phase 4: BAS & GST", phaseColor: "#553c9a",
-  title: "BAS & IAS Preparation and Lodgement",
-  goal: "Prepare, review, and lodge BAS and IAS directly from Xero to the ATO",
-  content: `
-<div class="section">
-  <h3>1. The BAS in Xero</h3>
-  <div class="topic">
-    <h4>Navigating to the BAS</h4>
-    <p>Accounting → Reports → Tax → Activity Statement (BAS)</p>
-    <ul>
-      <li>Select the relevant quarter/period</li>
-      <li>Xero pre-populates all labels based on your transactions</li>
-      <li>Review each label carefully before lodging</li>
-    </ul>
-  </div>
-  <div class="topic">
-    <h4>Understanding BAS Labels</h4>
-    <table>
-      <tr><th>Label</th><th>Description</th><th>Where It Comes From in Xero</th></tr>
-      <tr><td>G1</td><td>Total sales (incl. GST)</td><td>All income transactions</td></tr>
-      <tr><td>G2</td><td>Export sales</td><td>GST Free Income – exports</td></tr>
-      <tr><td>G3</td><td>Other GST-free sales</td><td>GST Free Income – domestic</td></tr>
-      <tr><td>G10</td><td>Capital purchases</td><td>Fixed asset purchases incl. GST</td></tr>
-      <tr><td>G11</td><td>Non-capital purchases</td><td>All other GST expenses</td></tr>
-      <tr><td><strong>1A</strong></td><td><strong>GST on sales</strong></td><td>GST collected on income</td></tr>
-      <tr><td><strong>1B</strong></td><td><strong>GST on purchases</strong></td><td>GST paid on expenses</td></tr>
-      <tr><td>W1</td><td>Total wages paid</td><td>Gross wages from payroll</td></tr>
-      <tr><td>W2</td><td>Amount withheld from wages</td><td>PAYG withholding from payroll</td></tr>
-      <tr><td>T1</td><td>PAYG instalment amount</td><td>ATO-determined instalment (if applicable)</td></tr>
-      <tr><td><strong>9</strong></td><td><strong>Net BAS amount payable/refundable</strong></td><td>1A – 1B + W2 +/- other adjustments</td></tr>
-    </table>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p><strong>Label 9</strong> is the bottom line — what you pay the ATO or receive as a refund. If 1B &gt; 1A (you paid more GST than you collected), you get a <strong>GST refund</strong>. This commonly happens for capital-intensive periods.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>2. Pre-BAS Checklist</h3>
-  <div class="topic">
-    <h4>Always Complete These Steps Before Lodging</h4>
-    <ul>
-      <li>✅ All bank accounts reconciled to statement balance</li>
-      <li>✅ All invoices and bills for the period entered and approved</li>
-      <li>✅ GST Audit Report reviewed — no obvious miscoding</li>
-      <li>✅ Payroll reconciled — W1 and W2 match your payroll reports</li>
-      <li>✅ Check that super payable, PAYG payable are on the Balance Sheet correctly</li>
-      <li>✅ Reconcile the BAS figures to your GST Reconciliation Report (Reports → GST Reconciliation)</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>In your trial file: Run the GST Reconciliation Report and verify it agrees with your BAS. The "Difference" line must be $0. If not, identify and correct the cause before proceeding.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>3. Lodging the BAS from Xero</h3>
-  <div class="topic">
-    <h4>Direct ATO Lodgement (Tax Agent or Registered BAS Agent)</h4>
-    <p>Xero connects directly to the ATO via <strong>SBR (Standard Business Reporting)</strong>. This means you can lodge the BAS directly from Xero without logging into the Business Portal.</p>
-    <ol style="padding-left:18px;font-size:0.88rem;color:#4a5568;line-height:1.7">
-      <li>Navigate to: Accounting → Activity Statements</li>
-      <li>Select the period and review all figures one final time</li>
-      <li>Click <strong>Lodge with ATO</strong></li>
-      <li>Enter your registered BAS/Tax agent credentials</li>
-      <li>Confirm — the ATO responds with an acknowledgement number</li>
-      <li>Xero marks the BAS as "Lodged" and creates the journal entry to clear GST accounts</li>
-    </ol>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>To lodge from Xero on behalf of a client, you must be a <strong>Registered BAS Agent</strong> or <strong>Tax Agent</strong> with the Tax Practitioners Board (TPB). Without this registration, you can prepare the BAS but the client or their registered agent must lodge it. BAS lodgement <strong>due dates</strong>: Q1 (28 Oct), Q2 (28 Feb), Q3 (28 Apr), Q4 (28 Jul). Registered agents often get a 1-month extension.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>4. IAS – Instalment Activity Statement</h3>
-  <div class="topic">
-    <h4>What Is the IAS?</h4>
-    <p>The IAS is a monthly statement for reporting <strong>PAYG Withholding</strong> only (no GST). It applies to businesses that withhold more than $25,000/year in PAYG (i.e., they pay monthly, not quarterly).</p>
-    <ul>
-      <li>Labels: W1 (Total wages), W2 (PAYG withheld), W4 (PAYG instalments if quarterly GST reporter)</li>
-      <li>Prepare the same way as BAS — use Payroll → PAYG Withholding Report to verify W1 and W2</li>
-      <li>Lodge monthly: due 21st of the following month</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong>
-      <ul>
-        <li>Prepare a BAS for Q3 (Jan–Mar) in your practice file. Complete the Pre-BAS checklist before touching the BAS screen.</li>
-        <li>Verify G1, 1A, G11, 1B, W1, and W2 all match your underlying reports.</li>
-        <li>Calculate Label 9 manually and confirm it matches Xero's calculation.</li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<div class="checkpoint">
-  <strong>✅ Week 11 Checkpoint</strong>
-  <p>Complete a full BAS preparation for one quarter: reconcile accounts, review the GST Audit Report, verify payroll figures match W1/W2, reconcile the GST Reconciliation Report to $0 difference, and be able to explain every BAS label to a client.</p>
-</div>`
-},
-
-// ── PHASE 5 ──────────────────────────────────────────────────────────────────
-{
-  week: 12, phase: 5, phaseLabel: "Phase 5: Certification", phaseColor: "#b7791f",
-  title: "Xero Certification & Practice Refinement",
-  goal: "Pass Xero Advisor Certification and sharpen your professional workflow",
-  content: `
-<div class="section">
-  <h3>1. Xero Advisor Certification</h3>
-  <div class="topic">
-    <h4>About the Certification</h4>
-    <p>The Xero Advisor Certification is Xero's official credential for accounting and bookkeeping professionals. It is <strong>free</strong>, widely recognised by Australian employers and clients, and earns <strong>CPD/CPE points</strong> with professional bodies including IPA, ICB, and CPA Australia.</p>
-    <ul>
-      <li><strong>3 Levels</strong>: Level 1 (Foundation) → Level 2 (Intermediate) → Level 3 (Advanced)</li>
-      <li>Each level has: self-paced modules, optional live webinar, and an online assessment</li>
-      <li>Pass mark: typically 80%+</li>
-      <li>Valid for <strong>12 months</strong> — annual recertification required</li>
-    </ul>
-    <div class="xero-tip"><strong>💡 Xero Tip</strong><p>Go to <strong>learning.central.xero.com</strong> and select "Xero Advisor Certification". Work through Level 1 first — many questions will feel familiar after your 11 weeks of practice. Aim to complete all 3 levels this week.</p></div>
-  </div>
-  <div class="topic">
-    <h4>What the Certification Covers</h4>
-    <ul>
-      <li><strong>Level 1</strong>: Setup, navigation, bank reconciliation, basic invoicing and bills</li>
-      <li><strong>Level 2</strong>: Reporting, payroll, BAS, fixed assets, multicurrency basics</li>
-      <li><strong>Level 3</strong>: Advanced reporting, Xero HQ, app ecosystem, advisory workflows</li>
-    </ul>
-    <div class="practice"><strong>🛠 Practice Task</strong><p>Schedule 2 hours for each level: 30 min reading the module content, 45 min doing the practice exercises, 30 min doing the assessment, 15 min reviewing any incorrect answers. Pass all 3 levels before the end of this week.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>2. Xero HQ – Managing Multiple Clients</h3>
-  <div class="topic">
-    <h4>What Is Xero HQ?</h4>
-    <p>Xero HQ is the practice management platform included with Xero Partner status. It lets bookkeepers and accountants manage all their clients from a single dashboard.</p>
-    <ul>
-      <li>Access all client Xero files from one login — no separate passwords per client</li>
-      <li><strong>Practice Dashboard</strong>: See which clients have unreconciled items, overdue BAS, payroll tasks pending</li>
-      <li><strong>Activity Reports</strong>: Track what's been done in each client's file</li>
-      <li><strong>Client Management</strong>: Manage client contacts, file access, and subscriptions</li>
-      <li><strong>Queries</strong>: Send coded questions to clients about transactions directly from the file</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>To access Xero HQ, you need a <strong>Xero Partner account</strong>. Apply via xero.com/au/accountants-bookkeepers/partners/. Free to join — you earn points and move up partner tiers as you add more clients on Xero.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>3. Recommended Xero App Ecosystem</h3>
-  <div class="topic">
-    <h4>Key Apps That Integrate With Xero (AU Context)</h4>
-    <table>
-      <tr><th>App</th><th>Purpose</th><th>Best For</th></tr>
-      <tr><td>Hubdoc</td><td>Receipt/bill capture (auto-sends to Xero)</td><td>High-volume AP, included free with Xero</td></tr>
-      <tr><td>Dext (Receipt Bank)</td><td>Receipt capture + coding</td><td>Bookkeepers with many clients</td></tr>
-      <tr><td>Deputy</td><td>Rostering + timesheets → Xero payroll</td><td>Hospitality, retail</td></tr>
-      <tr><td>Stripe / Square</td><td>Payment processing → auto-reconcile</td><td>Retail, ecommerce</td></tr>
-      <tr><td>Shopify</td><td>eCommerce → Xero integration</td><td>Online retailers</td></tr>
-      <tr><td>Practice Ignition</td><td>Engagement letters + automated billing</td><td>Bookkeeping/accounting practices</td></tr>
-      <tr><td>Float</td><td>Cash flow forecasting</td><td>Business advisory clients</td></tr>
-      <tr><td>Fathom</td><td>KPI reporting and dashboards</td><td>Business advisory</td></tr>
-    </table>
-  </div>
-</div>
-
-<div class="section">
-  <h3>4. Professional Workflow: Month-End Routine</h3>
-  <div class="topic">
-    <h4>Your Standard Monthly Bookkeeping Workflow</h4>
-    <ol style="padding-left:18px;font-size:0.88rem;color:#4a5568;line-height:1.85">
-      <li>Collect all source documents from client (receipts, bills, bank statements)</li>
-      <li>Enter any bills not yet in Xero (or process via Hubdoc/Dext)</li>
-      <li>Reconcile all bank accounts to statement balance</li>
-      <li>Review Aged Receivables — flag overdue invoices to client</li>
-      <li>Review Aged Payables — confirm which bills are due for payment</li>
-      <li>Run depreciation (if using Fixed Asset Register)</li>
-      <li>Post any accruals or prepayment journals</li>
-      <li>Run payroll for the period and confirm STP submissions accepted</li>
-      <li>Pay super (at quarter end)</li>
-      <li>Run Bank Reconciliation Summary — confirm $0 difference on all accounts</li>
-      <li>Run P&L and Balance Sheet — review for anomalies</li>
-      <li>Prepare BAS (at quarter end) — run pre-BAS checklist first</li>
-      <li>Set a <strong>lock date</strong> for the closed period to prevent accidental changes</li>
-    </ol>
-    <div class="xero-tip"><strong>💡 Xero Tip</strong><p>Set <strong>lock dates</strong> in Settings → General Settings → Financial Settings → Lock Dates. Lock the period after BAS lodgement. If a correction is needed after locking, you'll need to adjust the lock date, make the change, then re-lock.</p></div>
-  </div>
-</div>
-
-<div class="section">
-  <h3>5. Sharing Your Certification & Next Steps</h3>
-  <div class="topic">
-    <h4>After Certification</h4>
-    <ul>
-      <li>Download your <strong>PDF certificate</strong> from your Xero Learning profile</li>
-      <li>Add your <strong>Xero digital badge</strong> to LinkedIn (Xero provides a direct share link)</li>
-      <li>Add Xero Advisor Certification to your resume under Certifications</li>
-      <li>Apply to be a <strong>Xero Partner</strong> for Xero HQ access and partner benefits</li>
-      <li>Consider the <strong>ICB (Institute of Certified Bookkeepers)</strong> certification for further professional recognition in Australia</li>
-    </ul>
-    <div class="au-note"><strong>🇦🇺 Australian Note</strong><p>To legally prepare and lodge BAS on behalf of clients in Australia, you must be registered as a <strong>BAS Agent</strong> with the Tax Practitioners Board (TPB). Requirements include: relevant qualifications, 1,400 hours of relevant experience, and membership of a professional association (ICB, IPA, CPA, CA ANZ). Visit <strong>tpb.gov.au</strong> for current requirements.</p></div>
-  </div>
-</div>
-
-<div class="checkpoint">
-  <strong>✅ Final Checkpoint – Course Complete!</strong>
-  <p>🎉 Congratulations! You've covered the full Xero workflow for Australian bookkeeping and accounting. You should now: pass all 3 levels of Xero Advisor Certification, confidently set up a client file from scratch, process payroll end-to-end with STP, and prepare and lodge BAS/IAS. Your next step is to apply these skills on a real client file under supervision, and work toward your BAS Agent registration if you haven't already.</p>
-</div>`
-}
+var phases = [
+  {id:0,label:"All Weeks"},
+  {id:1,label:"📘 Phase 1: Orientation"},
+  {id:2,label:"📗 Phase 2: Core Accounting"},
+  {id:3,label:"📙 Phase 3: Payroll"},
+  {id:4,label:"📕 Phase 4: BAS & GST"},
+  {id:5,label:"🏆 Phase 5: Certification"}
 ];
 
-const phaseColors = {1:"#1b5e9e",2:"#276749",3:"#7b341e",4:"#553c9a",5:"#b7791f"};
-const phaseBg = {1:"#e8f4fd",2:"#f0fff4",3:"#fff5f5",4:"#faf5ff",5:"#fffaf0"};
-let completed = [];
+var phaseC = {
+  1:{bg:"#e8f4fd",text:"#1b5e9e",grad:"#1b5e9e,#13b5ea"},
+  2:{bg:"#f0fff4",text:"#276749",grad:"#276749,#38a169"},
+  3:{bg:"#fff5f5",text:"#c53030",grad:"#c53030,#e53e3e"},
+  4:{bg:"#faf5ff",text:"#553c9a",grad:"#553c9a,#805ad5"},
+  5:{bg:"#fffaf0",text:"#b7791f",grad:"#b7791f,#d97706"}
+};
 
-function renderWeeks(filter) {
-  const el = document.getElementById('mainContent');
-  el.innerHTML = '';
-  weeks.filter(w => !filter || w.phase === filter).forEach(w => {
-    const isDone = completed.includes(w.week);
-    const card = document.createElement('div');
-    card.className = 'week-card';
-    card.setAttribute('data-phase', w.phase);
-    card.innerHTML = `
-      <div class="week-header">
-        <div class="week-num">W${w.week}</div>
-        <div>
-          <h2>${w.title}</h2>
-          <p>Goal: ${w.goal}</p>
-        </div>
-        <span class="phase-badge" style="background:${phaseBg[w.phase]};color:${phaseColors[w.phase]}">${w.phaseLabel}</span>
-      </div>
-      <div class="week-body">${w.content}</div>
-      <button class="complete-btn ${isDone?'done':''}" onclick="toggleDone(${w.week},this)">
-        ${isDone ? '✅ Week Completed' : '○ Mark Week as Complete'}
-      </button>`;
-    el.appendChild(card);
+var weeks = [
+{w:1,ph:1,phl:"Phase 1: Orientation",title:"Dashboard & Initial Setup",goal:"Navigate Xero confidently and configure a new file from scratch",
+secs:[
+{t:"1. Understanding Xero's Interface",topics:[
+{h:"The Dashboard",b:"The Xero dashboard is your command centre showing a real-time snapshot of finances.",ul:["Bank Accounts panel — balances and items needing reconciliation","Invoices owed to you — outstanding receivables at a glance","Bills to pay — aged payables summary","Account watchlist — customisable balances you monitor","Cash flow graph — projected inflows and outflows"],tip:"Customise the Dashboard by clicking 'Edit layout' at the bottom. Add or remove widgets to suit your workflow."},
+{h:"Main Navigation Menu",b:"The top menu bar contains all major areas:",ul:["Business — Invoices, Quotes, Purchase Orders, Bills, Products & Services","Accounting — Bank Accounts, Chart of Accounts, Budgets, Reports, Advanced","Payroll — Employees, Pay Runs, Leave, Timesheets, Pay Items, Settings","Contacts — All customers and suppliers in one place","Reports — All financial and management reports"]}
+]},
+{t:"2. Organisation Settings",topics:[
+{h:"Settings → General Settings",b:"First thing to configure for any new Xero file:",ul:["Organisation details — Legal name, ABN, address, industry type","Financial settings — Financial year end, tax basis (cash or accrual), lock dates","Invoice settings — Default due date, branding themes","Email settings — Default address for sending invoices and reminders","Currency — Set default currency (AUD)"],au:"Financial year in Australia runs 1 July – 30 June. Set your financial year end to 30 June in General Settings."},
+{h:"GST & Tax Settings",b:"Navigate to: Settings → General Settings → Financial Settings",ul:["Set GST Basis: Cash (tax when paid/received) or Accruals (tax when invoiced)","Set GST period: Monthly, Quarterly, or Annually — must match your ATO registration","Confirm your ABN is entered correctly (used on invoices and BAS)"],au:"Most small businesses report GST quarterly. Check your BAS registration with the ATO to confirm your correct reporting period.",prac:"Open the Demo Company, go to Settings → General Settings → Financial Settings. Then in your trial file, set up a fictitious Australian business with ABN 12 345 678 901, GST registered quarterly on a cash basis."},
+{h:"Users & Roles",b:"Settings → Users → Invite a User:",ul:["Advisor — Full access including journals, bank reconciliation, reports","Standard (Accounts Payable) — Can enter bills and expenses only","Standard (Accounts Receivable) — Can create invoices and quotes","Read Only — Can view but not edit","Invoice Only — For staff who only create/approve invoices"],tip:"As a bookkeeper, you'll typically be added as an Advisor. If you have your own practice, use Xero HQ to manage all client files from one login."}
+]},
+{t:"3. Chart of Accounts",topics:[
+{h:"Accounting → Chart of Accounts",b:"The master list of all accounts. Each account has a Code, Name, Type (Asset/Liability/Equity/Revenue/Expense), and Tax Rate.",ul:["Xero provides a default COA — customise it to match the industry","Add accounts: Click '+ Add Account'","Archive (not delete) unused accounts to keep history clean","Import a custom COA via CSV for new clients"],prac:"Add: Code 612 'Subscriptions' (Expense, GST on Expenses). Add: Code 415 'Consulting Income' (Revenue, GST on Income). Archive 'Other Revenue' if unused."}
+]},
+{t:"4. Tracking Categories",topics:[
+{h:"Settings → General Settings → Tracking Categories",b:"Slice your P&L by dimension (department, location) without creating separate accounts. Up to 2 categories in Xero.",ul:["Example: Category 1 = Department (Sales, Admin, Operations)","Example: Category 2 = Location (Sydney, Melbourne, Brisbane)","Applied at transaction level on invoices, bills, and journals"],tip:"Set them up before entering transactions — retrofitting is time-consuming.",prac:"Create a Tracking Category called 'Department' with options: Admin, Sales, Operations. Then open a new invoice and notice the Tracking field has appeared."}
+]}
+],ckpt:"Navigate all main Xero menus, set up an organisation from scratch (ABN, GST settings, financial year), customise the Chart of Accounts, invite users with correct roles, and create Tracking Categories. Test yourself by setting up a fresh trial file for a fictitious tradie business."},
+
+{w:2,ph:1,phl:"Phase 1: Orientation",title:"Bank Feeds & Reconciliation",goal:"Connect bank feeds, create rules, and reconcile transactions accurately",
+secs:[
+{t:"1. Connecting Bank Feeds",topics:[
+{h:"Accounting → Bank Accounts → Add Bank Account",b:"Bank feeds automatically import transactions from your client's bank into Xero — usually within 24 hours.",ul:["Search for the bank (CommBank, ANZ, Westpac, NAB, Bendigo, etc.)","Follow the authorisation process (varies by bank — some instant, others 1–3 days)","Once connected, transactions flow in automatically"],au:"Xero connects to 160+ Australian financial institutions. For banks not supported, manually import a .CSV or .OFX bank statement file via 'Import a Statement'."}
+]},
+{t:"2. Bank Rules",topics:[
+{h:"Accounting → Bank Accounts → [Account] → Manage Rules → Add Rule",b:"Bank rules tell Xero how to automatically code recurring transactions.",ul:["Set conditions: e.g. 'Description contains TELSTRA'","Set action: Code to 'Telephone & Internet', tax rate 'GST on Expenses'","Set to 'Auto-accept' or 'Suggest' based on your confidence"],tip:"Set 'Auto-accept' only for transactions you're 100% confident about (payroll, rent). For variable supplier bills, use 'Suggest' so you can review first.",prac:"Create rules for: (1) 'OFFICE WORKS' → Office Supplies, GST on Expenses. (2) 'PAYROLL' → Wages & Salaries, BAS Excluded. (3) 'ATO' → GST Liability, BAS Excluded."}
+]},
+{t:"3. Reconciling Transactions",topics:[
+{h:"Accounting → Bank Accounts → [Account] → Reconcile X items",b:"Each bank line (left) must be matched with a Xero transaction (right). Three methods:",ul:["Match — Link to an existing invoice or bill already in Xero (most common)","Create — Directly code the transaction to an account if no invoice exists","Transfer — Match a transfer between two Xero bank accounts"],au:"When a customer pays multiple invoices together, use Find & Match to allocate across multiple invoices — this preserves the audit trail correctly.",prac:"In the Demo Company, reconcile all outstanding bank transactions. Aim for zero unreconciled items. Use Find & Match for any transactions covering multiple invoices."},
+{h:"Cash Coding (Bulk Reconciliation)",b:"Accounting → Bank Accounts → [Account] → Cash Coding. Assign accounts and tax rates to many lines at once in a spreadsheet-like view. Click Save — all selected lines are reconciled in one action."}
+]},
+{t:"4. Bank Reconciliation Report",topics:[
+{h:"Reports → Bank Reconciliation Summary",b:"Shows: Statement balance, Xero balance, Unreconciled items. The difference must be zero for a complete reconciliation.",ul:["Run at end of every month","Save or screenshot it — accountants require this at year-end","Investigate any differences: missing transactions, duplicates, or timing issues"],tip:"Run this report at the end of every month. Many accountants require it as evidence of reconciliation at year-end."}
+]}
+],ckpt:"Reconcile a full month of transactions in the Demo Company. Run the Bank Reconciliation Summary and confirm the difference is $0. Be comfortable with Match, Create, Transfer, and Find & Match scenarios."},
+
+{w:3,ph:2,phl:"Phase 2: Core Accounting",title:"Accounts Receivable",goal:"Manage the full sales cycle from quote to payment in Xero",
+secs:[
+{t:"1. The Sales Cycle in Xero",topics:[
+{h:"Quote → Invoice → Payment → Reconcile",b:"Understanding the flow prevents errors:",ul:["Quote — Send to customer for approval. Does NOT affect accounts.","Invoice (Draft) — Saved but not sent. Does NOT affect accounts.","Invoice (Approved) — Sent to customer. NOW affects accounts (accrual basis).","Payment allocated — Customer pays. Clears the debtor balance.","Bank reconciled — Match payment to bank feed. Completes the cycle."]}
+]},
+{t:"2. Creating Invoices",topics:[
+{h:"Business → Invoices → New Invoice",b:"Key fields to complete:",ul:["To — Select or create a Contact (customer)","Date — Invoice date (affects GST reporting period)","Due Date — e.g. 14 days, 30 days, or a fixed date","Invoice Number — Auto-generated or manual (must be unique)","Line items — Description, Quantity, Unit Price, Account, Tax Rate","Amounts are — Toggle between Tax Exclusive, Tax Inclusive, or No Tax"],au:"For GST-registered businesses, invoices over $82.50 (incl. GST) must show the GST amount separately. Xero does this automatically. Invoices must also include your ABN.",prac:"Create an approved invoice for $1,100 incl. GST to 'ABC Pty Ltd' for 'Consulting Services – March 2025'. Account: Consulting Income, Tax: GST on Income (10%). Email it using the default Xero template."},
+{h:"Repeating Invoices & Reminders",ul:["Repeating invoices: Business → Repeating Invoices → New Repeating Invoice","Set frequency: Weekly, Monthly, Annually","Invoice reminders: Settings → Email Settings → Invoice Reminders","Set reminders at: 7 days before due, on due date, 7 days overdue, 14 days overdue"]}
+]},
+{t:"3. Credit Notes, Overpayments & Bad Debts",topics:[
+{h:"Issuing a Credit Note",ul:["Open the original invoice → Click Credit Note","Enter the credit amount and reason","Approve the credit note and allocate it to the original invoice"],au:"Credit notes adjust your GST liability. Xero automatically reduces the BAS amount when you allocate a credit note — always process them in the correct reporting period."},
+{h:"Overpayments & Bad Debts",ul:["Overpayment: Reconcile the full bank amount — Xero creates an overpayment automatically. Apply to a future invoice or refund it.","Bad Debt Write-Off: Open unpaid invoice → add a credit note coded to 'Bad Debts' expense account with GST on Income — this reduces your GST liability."]}
+]},
+{t:"4. AR Reports",topics:[
+{h:"Reports → Aged Receivables Summary",b:"Shows all outstanding invoices grouped by age: Current, 1–30, 31–60, 61–90, 90+ days. Run at month-end and send to your client so they can chase overdue accounts.",prac:"In the Demo Company: Run an Aged Receivables Summary. Identify the top 3 overdue debtors. For one of them, create a $100 credit note and allocate it to their oldest invoice."}
+]}
+],ckpt:"Complete the full AR cycle: Create a quote → convert to invoice → approve → allocate a partial payment → handle the remaining balance as a credit note. Run Aged Receivables and confirm the balance matches your transactions."},
+
+{w:4,ph:2,phl:"Phase 2: Core Accounting",title:"Accounts Payable",goal:"Manage the full purchase cycle from bill entry to payment",
+secs:[
+{t:"1. Entering Bills",topics:[
+{h:"Business → Bills to Pay → New Bill",b:"Key fields:",ul:["From — Supplier contact","Date — Invoice date from the supplier's document","Due date — Payment terms (e.g. 30 days from invoice date)","Reference — Supplier's invoice number (critical for matching payments)","Attach the original supplier PDF — essential for ATO audits"],tip:"Use Hubdoc (included free with Xero) or Dext to capture and auto-enter bills via receipt scanning. Dramatically reduces manual data entry.",prac:"Enter a bill from 'Telstra' for $220 incl. GST dated 1/3/2025, due 21/3/2025. Account: Telephone & Internet. Then enter a bill from 'Office Works' for $55 incl. GST for Office Supplies."}
+]},
+{t:"2. Batch Payments & ABA Files",topics:[
+{h:"Business → Bills to Pay → Select bills → Batch Payment",ul:["Set the payment date and bank account","Download the ABA file and upload to your bank's internet banking","After payment, email remittance advices to all suppliers at once"],au:"The ABA file (Australian Bankers' Association format) is the standard file format used by Australian banks for batch EFT payments. Every major AU bank accepts ABA files via internet banking."}
+]},
+{t:"3. Supplier Credit Notes & Aged Payables",topics:[
+{h:"When a Supplier Issues You a Credit",ul:["Business → Bills → New Credit Note (or open the original bill → Credit Note)","Enter the credit amount with the same account and tax coding as the original bill","Allocate the credit note to a future bill from the same supplier"],prac:"In the Demo Company: Find a bill from any supplier. Create a $50 credit note against it. Allocate that credit to reduce an outstanding balance. Run the Aged Payables Summary and confirm the net balance is correct."},
+{h:"Reports → Aged Payables Summary",b:"Shows all outstanding bills by age and supplier. Use to prioritise payment runs — pay overdue suppliers first. Share with your client monthly so they can manage cash flow."}
+]}
+],ckpt:"Enter 5 bills from different suppliers, pay them using a batch payment, generate the ABA file, and run the Aged Payables Summary. Confirm all paid bills show as reconciled and the AP balance is $0 for those suppliers."},
+
+{w:5,ph:2,phl:"Phase 2: Core Accounting",title:"Fixed Assets & Financial Reporting",goal:"Manage fixed assets with depreciation and read core financial reports",
+secs:[
+{t:"1. Fixed Asset Register",topics:[
+{h:"Accounting → Advanced → Fixed Assets → Settings → Asset Types",b:"Set up Asset Types before adding assets. Common AU asset types:",tbl:{h:["Asset Type","Method","Rate / Life"],r:[["Motor Vehicles","Diminishing Value","25%"],["Office Equipment","Straight Line","5 years"],["Computer Equipment","Diminishing Value","33.33%"]]},au:"The ATO allows both Diminishing Value and Prime Cost (Straight Line) methods. Xero's 'Straight Line' = Prime Cost. For the instant asset write-off threshold, check ato.gov.au for the current limit."},
+{h:"Adding & Running Depreciation",ul:["Accounting → Fixed Assets → New Asset","Enter: Asset Name, Number, Type, Purchase Date, Purchase Price","Click Register to activate the asset","Run depreciation at month-end: Fixed Assets → Run Depreciation — this posts the journal automatically"],prac:"Add a Motor Vehicle: 'Ford Ranger – ABC123', purchased 1 July 2024 for $55,000 incl. GST. Set up the correct Asset Type first. Register and run depreciation for 3 months. Check the depreciation journal entries were created."}
+]},
+{t:"2. Financial Reports",topics:[
+{h:"Profit & Loss — Reports → Profit and Loss",ul:["Shows Revenue minus Expenses = Net Profit for a period","Compare periods: month-on-month or year-on-year","Compare to budget: show variance analysis","Filter by Tracking Category for departmental P&Ls"],tip:"Save custom report layouts using 'Save as Custom'. Your saved reports appear under Reports → Custom Reports, making month-end faster."},
+{h:"Balance Sheet — Reports → Balance Sheet",ul:["Shows Assets = Liabilities + Equity at a point in time","Check Retained Earnings reconciles year-to-year","Review GST payable/receivable balances — must match your BAS","Check AR and AP control accounts match your aged reports"],au:"The GST on the Balance Sheet should show: GST Payable (liability) if you owe ATO, or GST Receivable (asset) if the ATO owes you a refund. This must match your BAS calculation."},
+{h:"Cash Flow & Budget",ul:["Cash Flow Statement: Shows Operating, Investing, Financing activities — key for cash-poor but profitable clients","Budget Manager: Accounting → Budget Manager → Add Budget — import from Excel for faster entry"],prac:"In the Demo Company: Run a P&L for the last 6 months vs the previous 6 months. Identify the 3 accounts with the largest variance. Run a Balance Sheet and verify AR and AP control balances match the Aged Reports."}
+]}
+],ckpt:"Register a fixed asset, run depreciation, and confirm the journal entries. Run all 3 core financial statements and verify the Balance Sheet balances (AR, AP, GST) tie to their respective sub-reports."},
+
+{w:6,ph:2,phl:"Phase 2: Core Accounting",title:"Corrections, Journals & Conversion",goal:"Fix errors professionally and manage opening balances",
+secs:[
+{t:"1. Manual Journals — Accounting → Advanced → Manual Journals",topics:[
+{h:"When to Use Manual Journals",ul:["Accruals — recording expenses incurred but not yet billed","Prepayments — allocating prepaid expenses across periods","Year-end adjustments from your accountant","Correcting miscoded reconciled transactions","Every journal must balance: Total Debits = Total Credits"],},
+{h:"Accrual Example — Electricity bill for March, estimated $330 incl. GST",tbl:{h:["Account","Debit","Credit","Tax"],r:[["Electricity Expense","$300","","GST on Expenses"],["GST","$30","","BAS Excluded"],["Accrued Liabilities","","$330","BAS Excluded"]]},au:"Accruals with GST require careful coding. The GST component must be allocated correctly to ensure your BAS reflects the right amount. Always reverse accruals in the following month.",prac:"Create a prepayment journal: Insurance $1,200 paid July, allocate $100/month. Also create a wages accrual of $3,500 at 31 March with a reversal on 1 April."}
+]},
+{t:"2. Correcting Miscoded Transactions",topics:[
+{h:"Three Correction Methods",ul:["Method 1 (Before reconciliation): Open the transaction, edit the account/tax code, and save.","Method 2 (After reconciliation): Create a manual journal — Dr Correct Account, Cr Wrong Account. Do NOT unreconcile.","Method 3 — Find & Recode: Accounting → Advanced → Find & Recode. Bulk recode multiple transactions at once. Creates an audit trail."],tip:"Find & Recode is one of Xero's most powerful cleanup tools. Use it at year-end to fix systemic miscoding before the accountant reviews the file."}
+]},
+{t:"3. Conversion Balances — Accounting → Advanced → Conversion Balances",topics:[
+{h:"Setting Up a New Client File",ul:["Enter the trial balance as at the day before the Xero start date","Conversion Balances must balance (Assets = Liabilities + Equity)","Enter AR and AP as aggregate amounts (individual invoices added separately)","Enter Bank balance — must match the actual bank statement"],prac:"In your trial file: Set conversion date to 1 July 2024. Enter: Cash at Bank $25,000, AR $8,500, Equipment $15,000, AP $4,200, GST Payable $1,800, Bank Loan $10,000, Equity $32,500. Verify the screen shows $0 difference before saving."}
+]}
+],ckpt:"Create and reverse an accrual journal. Use Find & Recode to fix a batch of miscoded transactions. Set up conversion balances for a new client file with zero difference. Run the Balance Sheet and confirm it matches your input."},
+
+{w:7,ph:3,phl:"Phase 3: Payroll",title:"Payroll Setup",goal:"Configure Xero Payroll from scratch ready for processing pay runs",
+secs:[
+{t:"1. Payroll Settings & Pay Calendars",topics:[
+{h:"Payroll → Settings — Configure Before Adding Employees",ul:["Organisation Details — ABN, payroll contact, registered name","Pay Calendars — Define pay periods (weekly, fortnightly, monthly)","Superannuation Funds — Add the funds your employees contribute to","Pay Items — Ordinary time, overtime, leave, deductions, allowances","Payroll Accounts — Map payroll items to your Chart of Accounts"]},
+{h:"Pay Calendars — Payroll → Settings → Pay Calendars → Add",ul:["Set frequency: Weekly, Fortnightly, Monthly, or Four-weekly","Set the payment date (e.g. Thursday, last day of month)","Xero automatically calculates all future pay period dates"],prac:"Create two pay calendars: (1) 'Fortnightly – Thursday' starting 3 July 2024. (2) 'Monthly – Last Day' starting 31 July 2024."}
+]},
+{t:"2. Super Funds & Pay Items",topics:[
+{h:"Payroll → Settings → Superannuation Funds → Add",ul:["Search for the fund by name or ABN (Xero has a database of registered funds)","Add your employer membership number","Common AU funds: Australian Super, REST, HESTA, Hostplus, Cbus, QSuper","For SMSFs: add manually with ABN, ESA, BSB/Account"],au:"Employers must use SuperStream for all super contributions. Xero integrates with SuperStream-compliant clearing houses. The SGC rate is 11.5% in 2024–25, rising to 12% on 1 July 2025."},
+{h:"Payroll → Settings → Pay Items — Types",tbl:{h:["Category","Examples","Notes"],r:[["Earnings","Ordinary Time, Overtime, Casual Loading","Taxable by default"],["Leave","Annual Leave, Personal/Carer's, Long Service","Maps to Leave Types"],["Allowances","Car, Meal, Tool Allowance","May or may not be taxable"],["Deductions","Salary Sacrifice, Union Fees, Child Support","Pre- or post-tax"],["Superannuation","SGC, Salary Sacrifice Super, RESC","Must be correct for STP2"],["Reimbursements","Expense Reimbursement","Not taxable"]]},au:"Salary sacrifice to super reduces the employee's taxable income. Code it as Deduction – Pre-tax and set it to reduce the super calculation base correctly. Incorrect setup is a common STP reporting error."}
+]},
+{t:"3. Setting Up Employees",topics:[
+{h:"Payroll → Employees → Add Employee — Complete All Tabs",ul:["Details — Full legal name (must match ATO records), DOB, gender, start date","Employment — Employment type, pay calendar, pay template","Tax — TFN declaration: residency, TFN, tax offsets, HELP/HECS debt","Super — Fund, membership number, contribution amounts/percentages","Bank Accounts — BSB and account number for EFT payment","Leave — Opening leave balances, leave loading %, accrual rates"],au:"A completed Tax File Number Declaration must be received before the first pay run. Without it, withhold tax at 47% (incl. Medicare). Submit the form to the ATO within 14 days.",prac:"Create: (1) Jane Smith, TFN 123456782, salary $65,000 p.a., fortnightly, Australian Super, no HELP debt, 17.5% leave loading. (2) Tom Jones, TFN 987654321, $28.50/hr casual, weekly, REST Super."}
+]}
+],ckpt:"Set up a complete payroll configuration: 2 pay calendars, 3 super funds, at least 6 pay items, and 3 employees (full-time, part-time, casual) with all tabs completed. Verify the payroll accounts map correctly to your COA."},
+
+{w:8,ph:3,phl:"Phase 3: Payroll",title:"Processing Payroll",goal:"Run pay runs, manage leave, and handle terminations correctly",
+secs:[
+{t:"1. Processing a Pay Run",topics:[
+{h:"Payroll → Pay Runs → New Pay Run",ul:["Select the Pay Calendar and Pay Period","Xero auto-populates pay for all employees in that calendar","Review each employee's pay: earnings, deductions, leave, tax, net pay","Check the PAYG Withholding amount (calculated using ATO tax tables)","Click Post Pay Run — records all journal entries and flags STP submission","Pay employees: download ABA file for bank upload if needed"],tip:"Before posting, check the Pay Run Comparison — it shows differences from the previous run. If someone's tax or super looks unusual, investigate before posting."},
+{h:"The Payroll Journal (Behind the Scenes)",tbl:{h:["Account","Debit","Credit"],r:[["Wages & Salaries Expense","Gross wages",""],["Superannuation Expense","SGC amount",""],["PAYG Withholding Payable","","Tax withheld"],["Superannuation Payable","","SGC amount"],["Bank (net wages)","","Net wages paid"]]},au:"PAYG Withholding must be paid to the ATO on time — monthly (if annual withholding > $25,000) or quarterly (if less). Late payment attracts penalties and interest from the ATO."}
+]},
+{t:"2. Managing Leave",topics:[
+{h:"Leave Entitlements in Australia",tbl:{h:["Leave Type","Entitlement","Notes"],r:[["Annual Leave","4 weeks p.a.","Plus 17.5% loading for many awards"],["Personal/Carer's","10 days p.a.","Includes sick leave"],["Long Service Leave","Varies by state","QLD: 8.67 weeks after 10 years"],["Parental Leave","12 months unpaid (NES)","Govt paid scheme also applies"],["Compassionate Leave","2 days per occasion","Death or life-threatening illness"]]}},
+{h:"Processing Leave in a Pay Run",ul:["In the pay run, click the employee → Add Leave","Select leave type, dates, and hours","Xero reduces the leave balance automatically","Annual leave loading is added automatically if configured"],prac:"Process a fortnightly pay run for Jane Smith including 3 days annual leave. Process a weekly run for Tom Jones with 12 hours ordinary time and 3 hours overtime. Verify PAYG withholding is calculated correctly."}
+]},
+{t:"3. Termination Pays",topics:[
+{h:"Payroll → Employees → [Employee] → Employment → Termination",ul:["Enter the termination date and reason","Xero calculates unused annual leave and leave loading entitlements","Process a final pay run: remaining ordinary pay + unused leave payout","Check if a Genuine Redundancy Payment applies (different tax treatment)","STP Final Event is automatically flagged"],au:"Unused annual leave paid on termination is taxed at the employee's marginal rate. Long service leave and genuine redundancy payments have special ATO tax treatment. Always check the ATO's 'Withholding for employees leaving' guidance."}
+]}
+],ckpt:"Process a complete pay cycle: run pays for all employees including one with leave, verify the payroll journal, check PAYG withholding against ATO tax tables, and process a termination pay. Confirm leave balances are updated correctly."},
+
+{w:9,ph:3,phl:"Phase 3: Payroll",title:"STP Phase 2 & Superannuation",goal:"Master Single Touch Payroll Phase 2 reporting and SuperStream payments",
+secs:[
+{t:"1. Single Touch Payroll (STP) Phase 2",topics:[
+{h:"What Is STP?",b:"Every time you post a pay run in Xero, an STP report is automatically sent to the ATO. This replaces old Payment Summary Annual Reports (Group Certificates).",ul:["STP Phase 1 (July 2018): Basic gross/tax/super data","STP Phase 2 (mandatory since Jan 2022): Expanded data including income types, disaggregated earnings, child support"]},
+{h:"STP Phase 2 — Key Changes",tbl:{h:["Requirement","What It Means in Xero"],r:[["Disaggregated gross income","Separate ordinary, overtime, leave, allowances — not just one 'gross' figure"],["Income type","Flag each earnings type: SAL (salary), WSL (working holiday maker), etc."],["Child support deductions","Report directly to Child Support Agency via STP"],["Lump sum payments","Classify correctly: A, B, D, or E for tax purposes"]]},au:"Xero is STP Phase 2 compliant. You must ensure all Pay Items are correctly classified (income type and category set in Pay Item settings) before the first pay run."},
+{h:"Checking STP Submissions — Payroll → Single Touch Payroll → STP Submissions",ul:["'Accepted' — Submission received by ATO ✅","'Pending' — Hasn't reached ATO yet (wait 24–48 hours)","'Error' — Must investigate and resubmit"],prac:"In Payroll → STP Submissions, review the submission history. Identify any errors. Research what the error code means on the ATO's website and how to correct it."}
+]},
+{t:"2. EOFY STP Finalisation",topics:[
+{h:"Payroll → Single Touch Payroll → Finalise Payroll Year",ul:["Do this after the last June pay run but before 14 July","Review all employees' year-to-date figures for accuracy","Select the financial year and all employees","Submit the finalisation declaration to the ATO","Employees access their income statement via myGov — no more group certificates!"],au:"Once finalised, employees' income statements are marked 'Tax Ready' in myGov. If you discover an error after finalisation, you can submit an amended finalisation."}
+]},
+{t:"3. Super Payment Due Dates & SuperStream",topics:[
+{h:"Payroll → Superannuation → [Pay Period] → Submit",ul:["Xero connects to the Xero SuperStream clearing house","After posting a pay run, review the super liability in the super tab","Click 'Submit' to send the super payment instruction","Funds are debited from your bank and distributed to each employee's fund"],tbl:{h:["Quarter","Period","Due Date"],r:[["Q1","July – September","28 October"],["Q2","October – December","28 January"],["Q3","January – March","28 April"],["Q4","April – June","28 July"]]},au:"Late super payments lose their tax deductibility and attract the Super Guarantee Charge (SGC) — a penalty-laden charge payable to the ATO. Never miss a super deadline.",prac:"Set up a salary sacrifice arrangement for Jane Smith: $200 per fortnight extra super. Process a pay run and verify the salary sacrifice shows as a pre-tax deduction reducing her taxable gross. Check the STP submission includes RESC correctly."}
+]}
+],ckpt:"Process a full quarterly payroll cycle, confirm all STP submissions are accepted, pay super through SuperStream, and complete the EOFY finalisation process."},
+
+{w:10,ph:4,phl:"Phase 4: BAS & GST",title:"GST Foundations",goal:"Master GST coding in Xero and understand the GST Audit Report",
+secs:[
+{t:"1. GST Tax Codes in Xero",topics:[
+{h:"The Essential Tax Rates You Must Know",tbl:{h:["Tax Rate","Rate","When to Use"],r:[["GST on Income","10%","Taxable sales your business makes"],["GST on Expenses","10%","Business expenses that include GST"],["GST Free Income","0%","GST-free sales (basic food, exports, health)"],["GST Free Expenses","0%","Purchases that are GST-free (ASIC fees, some insurance)"],["BAS Excluded","N/A","Wages, super, loan repayments, ATO payments — NOT on BAS"],["Input Taxed","N/A","Financial supplies (bank interest, residential rent)"]]},au:"BAS Excluded is one of the most commonly misused codes. Use it for: payroll, PAYG instalments, ATO payments, and loan principal repayments. Using 'GST Free' instead distorts your BAS."},
+{h:"Common GST Coding Mistakes",tbl:{h:["Transaction","Wrong Code","Correct Code"],r:[["Bank fees","GST on Expenses","Input Taxed"],["Wages paid","GST Free Expenses","BAS Excluded"],["Superannuation","GST on Expenses","BAS Excluded"],["Basic groceries","GST on Expenses","GST Free Expenses"],["Export sales","GST on Income","GST Free Income"],["Residential rent received","GST on Income","Input Taxed"]]}}
+]},
+{t:"2. GST Reporting Basis & GST Audit Report",topics:[
+{h:"Cash vs Accruals GST",ul:["Cash basis: GST reported when cash is received/paid. Suits small businesses with uneven cash flow.","Accruals basis: GST reported when invoice is raised/received. Required for turnover > $10m.","Most small businesses under $10m can choose either — check the client's ATO registration."],au:"If a business is on cash basis GST, Xero must be set to 'Cash' in Financial Settings. Running a BAS on the wrong basis is a reportable error."},
+{h:"Reports → Tax → GST Audit Report — Pre-BAS Check",ul:["Shows every transaction affecting the BAS, grouped by tax rate","Check for transactions coded to the wrong tax rate","Check the 'BAS Excluded' section — verify wages, super, loan repayments are there","GST Collected and GST Paid totals roll directly into your BAS"],prac:"In the Demo Company: Run the GST Audit Report for the last quarter. Identify at least 2 transactions that look incorrectly coded. Check if bank fees are coded as Input Taxed (they should be). Verify all payroll items are in BAS Excluded."}
+]},
+{t:"3. Partial GST Claims (Private Use)",topics:[
+{h:"When a Purchase Is Partly Business, Partly Private",b:"Example: Mobile phone used 60% for business, 40% personal. Bill: $220 incl. GST.",ul:["Line 1: $132 (60%) → GST on Expenses (claim $12 GST)","Line 2: $88 (40%) → BAS Excluded (no GST claim)","Apply same logic for motor vehicles based on logbook %"],au:"The ATO requires a vehicle logbook (12 consecutive weeks) to substantiate business use % for cars. Without it, use the ATO cents-per-kilometre method instead."}
+]}
+],ckpt:"Recode any incorrectly coded transactions in the Demo Company. Run the GST Audit Report and explain what each section means. Create 3 transactions with partial GST claims and verify they appear correctly in the report."},
+
+{w:11,ph:4,phl:"Phase 4: BAS & GST",title:"BAS & IAS Preparation and Lodgement",goal:"Prepare, review, and lodge BAS and IAS directly from Xero to the ATO",
+secs:[
+{t:"1. Understanding BAS Labels",topics:[
+{h:"Accounting → Reports → Tax → Activity Statement (BAS)",tbl:{h:["Label","Description","Where It Comes From in Xero"],r:[["G1","Total sales (incl. GST)","All income transactions"],["G2","Export sales","GST Free Income – exports"],["G10","Capital purchases","Fixed asset purchases incl. GST"],["G11","Non-capital purchases","All other GST expenses"],["1A","GST on sales (you owe ATO)","GST collected on income"],["1B","GST on purchases (ATO owes you)","GST paid on expenses"],["W1","Total wages paid","Gross wages from payroll"],["W2","PAYG withholding","Tax withheld from payroll"],["9","Net BAS amount payable/refundable","1A – 1B + W2 +/- adjustments"]]},au:"Label 9 is the bottom line — what you pay or receive as a refund. If 1B > 1A (you paid more GST than you collected), you get a GST refund."}
+]},
+{t:"2. Pre-BAS Checklist",topics:[
+{h:"Always Complete These Steps Before Lodging",ul:["✅ All bank accounts reconciled to statement balance","✅ All invoices and bills for the period entered and approved","✅ GST Audit Report reviewed — no obvious miscoding","✅ Payroll reconciled — W1 and W2 match your payroll reports","✅ Super payable and PAYG payable on the Balance Sheet correctly","✅ Run GST Reconciliation Report (Reports → GST Reconciliation) — Difference must be $0"],prac:"In your trial file: Run the GST Reconciliation Report and verify it agrees with your BAS. The 'Difference' line must be $0. If not, identify and correct the cause before proceeding."}
+]},
+{t:"3. Lodging the BAS from Xero",topics:[
+{h:"Accounting → Activity Statements → Lodge with ATO",ul:["Select the period and review all figures one final time","Click 'Lodge with ATO' — enter your registered BAS/Tax agent credentials","ATO responds with an acknowledgement number","Xero marks the BAS as 'Lodged' and creates the journal entry to clear GST accounts"],au:"To lodge from Xero on behalf of clients you must be a registered BAS Agent or Tax Agent with the TPB. BAS due dates: Q1 (28 Oct), Q2 (28 Feb), Q3 (28 Apr), Q4 (28 Jul). Registered agents often get a 1-month extension."},
+{h:"IAS — Instalment Activity Statement",b:"Monthly PAYG Withholding statement for businesses withholding > $25,000/year.",ul:["Labels: W1 (Total wages), W2 (PAYG withheld)","Verify using Payroll → PAYG Withholding Report","Lodge monthly: due 21st of the following month"],prac:"Prepare a BAS for Q3 (Jan–Mar) in your practice file. Complete the full pre-BAS checklist. Verify G1, 1A, G11, 1B, W1, and W2 all match your underlying reports. Calculate Label 9 manually and confirm it matches Xero's calculation."}
+]}
+],ckpt:"Complete a full BAS preparation for one quarter: reconcile accounts, review the GST Audit Report, verify payroll figures match W1/W2, reconcile the GST Reconciliation Report to $0 difference, and explain every BAS label to a client."},
+
+{w:12,ph:5,phl:"Phase 5: Certification",title:"Xero Certification & Professional Workflow",goal:"Pass Xero Advisor Certification and establish your professional workflow",
+secs:[
+{t:"1. Xero Advisor Certification — learning.central.xero.com",topics:[
+{h:"Free, Recognised, CPD-Earning Credential",ul:["3 Levels: Level 1 (Foundation) → Level 2 (Intermediate) → Level 3 (Advanced)","Each level: self-paced modules + online assessment. Pass mark typically 80%+","Valid for 12 months — annual recertification required","Earns CPD/CPE points with IPA, ICB, and CPA Australia"],tbl:{h:["Level","Key Topics"],r:[["Level 1","Setup, navigation, bank reconciliation, basic invoicing and bills"],["Level 2","Reporting, payroll, BAS, fixed assets, multicurrency basics"],["Level 3","Advanced reporting, Xero HQ, app ecosystem, advisory workflows"]]},tip:"Schedule 2 hours per level: 30 min reading, 45 min practice exercises, 30 min assessment, 15 min reviewing incorrect answers. Aim to pass all 3 levels this week."}
+]},
+{t:"2. Xero HQ & The App Ecosystem",topics:[
+{h:"Xero HQ — Practice Management for Bookkeepers",ul:["Access all client Xero files from one login","Practice Dashboard — see unreconciled items, overdue BAS, payroll tasks across all clients","Queries — send coded questions to clients about transactions directly from the file","Apply for Xero Partner account at xero.com/au/accountants-bookkeepers/partners/ (free)"],au:"To access Xero HQ, apply for a Xero Partner account. Free to join. You earn points and move up partner tiers as you add more clients."},
+{h:"Top Xero Integrations for Australian Bookkeepers",tbl:{h:["App","Purpose","Best For"],r:[["Hubdoc","Receipt/bill capture → auto-sends to Xero","High-volume AP — included free with Xero"],["Dext","Receipt capture + coding","Bookkeepers with many clients"],["Deputy","Rostering + timesheets → Xero payroll","Hospitality, retail"],["Stripe / Square","Payment processing → auto-reconcile","Retail, ecommerce"],["Float","Cash flow forecasting","Business advisory clients"],["Fathom","KPI reporting and dashboards","Business advisory"],["Practice Ignition","Engagement letters + automated billing","Bookkeeping practices"]]}}
+]},
+{t:"3. Your Standard Month-End Workflow",topics:[
+{h:"The Bookkeeper's Monthly Routine",ul:["1. Collect all source documents from client (receipts, bills, bank statements)","2. Enter any bills not yet in Xero (or process via Hubdoc/Dext)","3. Reconcile all bank accounts to statement balance","4. Review Aged Receivables — flag overdue invoices to client","5. Review Aged Payables — confirm which bills are due for payment","6. Run depreciation (if using Fixed Asset Register)","7. Post any accruals or prepayment journals","8. Run payroll — confirm STP submissions accepted","9. Pay super (at quarter end)","10. Run Bank Reconciliation Summary — confirm $0 difference on all accounts","11. Run P&L and Balance Sheet — review for anomalies","12. Prepare BAS (at quarter end) — run pre-BAS checklist first","13. Set a lock date for the closed period to prevent accidental changes"],tip:"Set lock dates in Settings → General Settings → Financial Settings → Lock Dates. Lock the period after BAS lodgement. If a correction is needed, adjust the lock date, make the change, then re-lock."},
+{h:"After Certification — Your Next Steps",ul:["Download your PDF certificate from your Xero Learning profile","Add your Xero digital badge to LinkedIn (Xero provides a direct share link)","Apply to be a Xero Partner for Xero HQ access and partner benefits","Consider ICB (Institute of Certified Bookkeepers) certification for further AU recognition"],au:"To legally lodge BAS on behalf of clients you must be a registered BAS Agent with the TPB. Requirements: relevant qualifications, 1,400 hours of experience, and membership of IPA, ICB, CPA, or CA ANZ. Visit tpb.gov.au."}
+]}
+],ckpt:"🎉 Course Complete! You should now: pass all 3 levels of Xero Advisor Certification, confidently set up a client file from scratch, process payroll end-to-end with STP Phase 2, and prepare and lodge BAS/IAS. Next: apply these skills on a real client file under supervision, and work toward your BAS Agent registration with the TPB."}
+];
+
+var activePhase = 0;
+var expanded = {};
+
+function buildTable(tbl) {
+  var s = '<table><thead><tr>';
+  tbl.h.forEach(function(h){ s += '<th>'+h+'</th>'; });
+  s += '</tr></thead><tbody>';
+  tbl.r.forEach(function(row){
+    s += '<tr>';
+    row.forEach(function(c){ s += '<td>'+c+'</td>'; });
+    s += '</tr>';
   });
-  updateProgress();
+  return s + '</tbody></table>';
 }
 
-function toggleDone(wk, btn) {
-  if (completed.includes(wk)) {
-    completed = completed.filter(x => x !== wk);
-    btn.className = 'complete-btn';
-    btn.textContent = '○ Mark Week as Complete';
-  } else {
-    completed.push(wk);
-    btn.className = 'complete-btn done';
-    btn.textContent = '✅ Week Completed';
+function buildTopic(t) {
+  var s = '<div class="topic"><h4>'+t.h+'</h4>';
+  if(t.b) s += '<p>'+t.b+'</p>';
+  if(t.ul) {
+    s += '<ul>';
+    t.ul.forEach(function(li){ s += '<li>'+li+'</li>'; });
+    s += '</ul>';
   }
-  updateProgress();
+  if(t.tbl) s += buildTable(t.tbl);
+  if(t.tip) s += '<div class="box tip-box"><strong>💡 Xero Tip</strong><p>'+t.tip+'</p></div>';
+  if(t.au) s += '<div class="box au-box"><strong>🇦🇺 Australian Note</strong><p>'+t.au+'</p></div>';
+  if(t.prac) s += '<div class="box prac-box"><strong>🛠 Practice Task</strong><p>'+t.prac+'</p></div>';
+  return s + '</div>';
 }
 
-function updateProgress() {
-  const pct = Math.round((completed.length / 12) * 100);
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('progressLabel').textContent = `${completed.length} of 12 weeks completed (${pct}%)`;
+function buildWeek(wk) {
+  var pc = phaseC[wk.ph];
+  var isDone = done.indexOf(wk.w) !== -1;
+  var isOpen = expanded[wk.w];
+  var headBg = isDone ? '#f0fdf4' : '#fff';
+  var numBg = isDone ? '#22c55e' : pc.text;
+  var numTxt = isDone ? '✓' : 'W'+wk.w;
+  var body = '';
+  if(isOpen) {
+    wk.secs.forEach(function(sec){
+      body += '<div class="sec-title" style="color:'+pc.text+'">'+sec.t+'</div>';
+      sec.topics.forEach(function(t){ body += buildTopic(t); });
+    });
+    body += '<div class="ckpt" style="background:linear-gradient(135deg,'+pc.grad+')"><strong>✅ Week '+wk.w+' Checkpoint</strong><p>'+wk.ckpt+'</p></div>';
+    var btnClass = isDone ? 'done-btn done' : 'done-btn';
+    var btnTxt = isDone ? '✅ Week Marked Complete — Click to Undo' : '○ Mark Week as Complete';
+    body += '<button class="'+btnClass+'" onclick="toggleDone('+wk.w+')">'+btnTxt+'</button>';
+  }
+  return '<div class="card" id="card'+wk.w+'">'
+    +'<div class="card-head" style="background:'+headBg+'" onclick="toggleWeek('+wk.w+')">'
+    +'<div class="wnum" style="background:'+numBg+'">'+numTxt+'</div>'
+    +'<div><div class="wtitle">'+wk.title+'</div><div class="wgoal">Goal: '+wk.goal+'</div></div>'
+    +'<span class="tag" style="background:'+pc.bg+';color:'+pc.text+'">'+wk.phl+'</span>'
+    +'<span class="arrow">'+(isOpen?'▲':'▼')+'</span>'
+    +'</div>'
+    +'<div class="card-body'+(isOpen?' open':'')+'">'+body+'</div>'
+    +'</div>';
 }
 
-function showAll() {
-  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-  document.querySelector('nav button').classList.add('active');
-  renderWeeks(null);
+function render() {
+  var list = activePhase === 0 ? weeks : weeks.filter(function(w){ return w.ph === activePhase; });
+  var html = '';
+  list.forEach(function(wk){ html += buildWeek(wk); });
+  document.getElementById('app').innerHTML = html;
+  var pct = Math.round(done.length/12*100);
+  document.getElementById('barFill').style.width = pct+'%';
+  document.getElementById('barLabel').textContent = done.length+' of 12 weeks completed ('+pct+'%)';
 }
 
-function filterPhase(p) {
-  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
-  renderWeeks(p);
+function renderNav() {
+  var html = '';
+  phases.forEach(function(p){
+    html += '<button class="'+(activePhase===p.id?'on':'')+'" onclick="setPhase('+p.id+')">'+p.label+'</button>';
+  });
+  document.getElementById('nav').innerHTML = html;
 }
 
-renderWeeks(null);
+function setPhase(id) { activePhase = id; renderNav(); render(); }
+function toggleWeek(w) { expanded[w] = !expanded[w]; render(); }
+function toggleDone(w) {
+  var i = done.indexOf(w);
+  if(i === -1) done.push(w); else done.splice(i,1);
+  render();
+}
+
+renderNav();
+render();
 </script>
 </body>
 </html>
